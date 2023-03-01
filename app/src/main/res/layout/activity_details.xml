@@ -27,7 +27,7 @@
             android:id="@+id/spinnerLayout"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="50dp"
             android:layout_toRightOf="@+id/txtviewGender"
             android:layout_weight=".28"
             android:orientation="horizontal">
@@ -57,6 +57,65 @@
 
         </RelativeLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:layout_below="@+id/txtviewGender"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/txtViewHeight"/>
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:hint="cm"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20dp"
+            android:layout_below="@+id/txtviewGender"
+            android:layout_toRightOf="@+id/txtViewHeight"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/input"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/edtTxtHeight"
+            android:inputType="number"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:layout_below="@+id/txtViewHeight"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="1dp"
+            android:id="@+id/txtViewWeight"/>
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:hint="kg"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20dp"
+            android:layout_below="@+id/txtViewHeight"
+            android:layout_toRightOf="@+id/txtViewHeight"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/input"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/edtTxtWeight"
+            android:inputType="number"/>
 
 
     </RelativeLayout>
