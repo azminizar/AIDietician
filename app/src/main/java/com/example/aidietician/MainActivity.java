@@ -17,12 +17,11 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("AI DIETICIAN");
     }
 
-    public void onbtnLoginClicked(View v1){
-        startActivity(new Intent(this,HomePage.class));
-    }
-
-    public void onSignupClick(View v2){
+    public void onSignupClick(View v1){
         startActivity(new Intent(this,Signup.class));
     }
 
+    public void onbtnLoginClicked(View v2){
+        startActivity(new Intent(this,Home2.class));
+    }
 }
