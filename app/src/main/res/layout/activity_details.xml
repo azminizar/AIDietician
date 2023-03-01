@@ -6,10 +6,5 @@
     android:layout_height="match_parent"
     tools:context=".Details">
 
-    <TextView
-        android:id="@+id/textViewGender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gender"
-        android:textSize=""/>
+
 </RelativeLayout>
