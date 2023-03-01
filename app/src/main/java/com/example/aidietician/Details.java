@@ -15,25 +15,9 @@ import java.util.ArrayList;
 
 public class Details extends AppCompatActivity {
 
-    AutoCompleteTextView autotxtView;
-    ArrayList<String> list_gender;
-    ArrayAdapter<String> adap_gender;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-
-        autotxtView = (AutoCompleteTextView)findViewById(R.id.autotxtView);
-
-        list_gender = new ArrayList<>();
-        list_gender.add("Male");
-        list_gender.add("Female");
-        list_gender.add("Other");
-
-        adap_gender = new ArrayAdapter<>(getApplicationContext(),com.google.android.material.R.layout.support_simple_spinner_dropdown_item,list_gender);
-        autotxtView.setAdapter(adap_gender);
-
-        autotxtView.setThreshold(1);
     }
 }
