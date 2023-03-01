@@ -6,4 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".Details">
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:id="@+id/txtviewGender"
+            android:textSize="30dp"
+            android:textColor="@color/black"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtviewGender"
+            android:text="Male"
+            android:textSize="20dp"
+            android:id="@+id/radioBtnMale"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioBtnMale"
+            android:text="Female"
+            android:textSize="20dp"
+            android:id="@+id/radioBtnFemale"/>
+
+    </RelativeLayout>
+
+
 </RelativeLayout>
