@@ -19,7 +19,6 @@ public class Signup extends AppCompatActivity {
 
     public void onBtnSignupClick(View v){
         Button btnSignup = findViewById(R.id.btnSignUp);
-        Toast.makeText(this, "New user registered", Toast.LENGTH_SHORT).show();
     }
 
     public void onAcntClick(View v2){

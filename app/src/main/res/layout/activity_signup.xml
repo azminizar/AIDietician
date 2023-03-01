@@ -120,7 +120,7 @@
             android:background="@drawable/input"
             android:onClick="onBtnSignupClick"
             android:shadowColor="@color/teal_700"
-            android:text="Sign up"
+            android:text="Next"
             android:textColor="@color/white" />
 
         <TextView
