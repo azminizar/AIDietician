@@ -15,9 +15,29 @@ import java.util.ArrayList;
 
 public class Details extends AppCompatActivity {
 
+    Spinner spinner;
+    String[] gender = {"Gender","Male","Female","Other"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+
+        spinner = findViewById(R.id.spinnerGender);
+
+        ArrayAdapter<String> adapter = new  ArrayAdapter<String>(Details.this, android.R.layout.simple_spinner_item,gender);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String value = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 }
