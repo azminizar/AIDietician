@@ -13,7 +13,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="100dp"
         android:layout_marginRight="50dp"
-        android:id="@+id/relDetail">
+        android:id="@+id/relSpinner">
 
         <Spinner
             android:id="@+id/spinnerGender"
@@ -73,6 +73,77 @@
             android:paddingBottom="10dp"
             android:id="@+id/edtTxtWeight"
             android:inputType="number"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="355dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/relSpinner"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:id="@+id/relFoodplan">
+
+
+        <Spinner
+            android:id="@+id/spinnerFoodplan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/input"
+            android:backgroundTint="@color/white"
+            android:foregroundTint="@color/white"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:spinnerMode="dropdown" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:src="@drawable/ic_baseline_arrow_drop_down_24" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="355dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/relFoodplan"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/relDietPref">
+
+
+        <Spinner
+            android:id="@+id/spinnerDietPref"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/input"
+            android:backgroundTint="@color/white"
+            android:foregroundTint="@color/white"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:spinnerMode="dropdown" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:src="@drawable/ic_baseline_arrow_drop_down_24" />
 
     </RelativeLayout>
 
