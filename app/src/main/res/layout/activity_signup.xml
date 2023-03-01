@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_green"
+    tools:context=".Signup">
+
+    <TextView
+        android:id="@+id/txtViewSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="100dp"
+        android:text="Sign up account"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtViewSign"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp">
+
+
+        <EditText
+            android:id="@+id/edttxtUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input"
+
+            android:drawableLeft="@drawable/ic_baseline_person"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/edttxtPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edttxtPassword"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/input"
+            android:drawableLeft="@drawable/ic_baseline_phone"
+            android:hint="Phone"
+            android:inputType="phone"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/edttxtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edttxtUsername"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/input"
+            android:drawableLeft="@drawable/ic_baseline_security"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/edttxtDOB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edttxtPhone"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/input"
+            android:drawableLeft="@drawable/ic_baseline_calendar_month"
+            android:hint="Date of Birth"
+            android:inputType="date"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/edttxtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edttxtDOB"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/input"
+            android:drawableLeft="@drawable/ic_baseline_email"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textColorLink="@color/black" />
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edttxtEmail"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/input"
+            android:onClick="onBtnSignupClick"
+            android:shadowColor="@color/teal_700"
+            android:text="Sign up"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/txtviewAlrady"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnSignUp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:onClick="onAcntClick"
+            android:text="Already have account?"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
