@@ -17,8 +17,9 @@ public class Signup extends AppCompatActivity {
         getSupportActionBar().setTitle("Signup");
     }
 
-    public void onBtnSignupClick(View v){
+    public void onBtnNextClick(View v){
         Button btnSignup = findViewById(R.id.btnSignUp);
+        startActivity(new Intent(this,Details.class));
     }
 
     public void onAcntClick(View v2){

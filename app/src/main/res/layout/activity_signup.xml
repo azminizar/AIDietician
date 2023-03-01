@@ -118,7 +118,7 @@
             android:layout_below="@+id/edttxtEmail"
             android:layout_marginTop="15dp"
             android:background="@drawable/input"
-            android:onClick="onBtnSignupClick"
+            android:onClick="onBtnNextClick"
             android:shadowColor="@color/teal_700"
             android:text="Next"
             android:textColor="@color/white" />
