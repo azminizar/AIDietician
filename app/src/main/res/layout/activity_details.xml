@@ -8,77 +8,21 @@
     tools:context=".Details">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="50dp"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="100dp"
         android:layout_marginRight="50dp">
 
-        <TextView
-            android:id="@+id/txtviewGender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gender"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/white"
-            android:textSize="30dp" />
-
-        <RelativeLayout
-            android:id="@+id/spinnerLayout"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_toRightOf="@+id/txtviewGender"
-            android:layout_weight=".28"
-            android:orientation="horizontal">
-
-            <Spinner
-                android:id="@+id/spinnerGender"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/input"
-                android:backgroundTint="@color/white"
-                android:foregroundTint="@color/white"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="10dp"
-                android:spinnerMode="dropdown" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_gravity="center"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/ic_baseline_arrow_drop_down_24" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Height"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-            android:layout_below="@+id/txtviewGender"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="20dp"
-            android:id="@+id/txtViewHeight"/>
 
         <EditText
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="cm"
+            android:hint="Height"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="20dp"
-            android:layout_below="@+id/txtviewGender"
-            android:layout_toRightOf="@+id/txtViewHeight"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="50dp"
             android:background="@drawable/input"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
@@ -87,28 +31,15 @@
             android:id="@+id/edtTxtHeight"
             android:inputType="number"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Weight"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-            android:layout_below="@+id/txtViewHeight"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="1dp"
-            android:id="@+id/txtViewWeight"/>
-
         <EditText
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="kg"
+            android:hint="Weight"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="20dp"
-            android:layout_below="@+id/txtViewHeight"
-            android:layout_toRightOf="@+id/txtViewHeight"
+            android:layout_below="@+id/edtTxtHeight"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="50dp"
             android:background="@drawable/input"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
