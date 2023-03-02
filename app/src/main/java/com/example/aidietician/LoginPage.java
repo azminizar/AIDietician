@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 
 public class LoginPage extends AppCompatActivity {
 
@@ -12,7 +13,8 @@ public class LoginPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+        //requestWindowFeature(Window.FEATURE_NO_TITLE)
+        //getSupportActionBar().hide();
     }
 
     public void onSignupClick(View v1){
