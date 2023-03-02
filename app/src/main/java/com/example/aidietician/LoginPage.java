@@ -17,6 +17,12 @@ public class LoginPage extends AppCompatActivity {
 
     public void onSignupClick(View v1){
         startActivity(new Intent(this,Signup.class));
+        finish();
+    }
+
+    public void onbtnLoginClicked(View v2){
+        startActivity(new Intent(this,Homepage.class));
+        finish();
     }
 
 }
