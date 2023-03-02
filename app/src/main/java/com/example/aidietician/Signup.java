@@ -17,6 +17,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.net.Inet4Address;
+
 public class Signup extends AppCompatActivity {
 
     EditText editTextEmail,editTextPassword,editTextPno,editTextDob;
@@ -80,7 +82,9 @@ public class Signup extends AppCompatActivity {
                             }
                         });
 
-
+                Intent intent= new Intent(getApplicationContext(),Details.class );
+                startActivity(intent);
+                finish();
             }
         });
     }
