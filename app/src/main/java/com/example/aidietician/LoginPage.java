@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ProgressBar;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +19,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this,Signup.class));
     }
 
-    public void onbtnLoginClicked(View v2){
-        startActivity(new Intent(this,Signup.class));
-    }
 }

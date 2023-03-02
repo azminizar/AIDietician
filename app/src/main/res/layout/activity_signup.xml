@@ -33,7 +33,7 @@
             android:background="@drawable/input"
 
             android:drawableLeft="@drawable/ic_baseline_person"
-            android:hint="Username"
+            android:hint="Email"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
@@ -93,34 +93,16 @@
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
 
-        <EditText
-            android:id="@+id/edttxtEmail"
+        <Button
+            android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edttxtDOB"
             android:layout_marginTop="25dp"
             android:background="@drawable/input"
-            android:drawableLeft="@drawable/ic_baseline_email"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="10dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textColorLink="@color/black" />
-
-        <Button
-            android:id="@+id/btnSignUp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edttxtEmail"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/input"
             android:onClick="onBtnNextClick"
             android:shadowColor="@color/teal_700"
-            android:text="Next"
+            android:text="Signup"
             android:textColor="@color/white" />
 
         <TextView

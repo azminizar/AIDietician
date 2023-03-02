@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="100dp"
-        android:layout_marginRight="50dp"
         android:id="@+id/relSpinner">
 
         <Spinner
@@ -76,12 +75,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="355dp"
+        android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_below="@+id/relSpinner"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
+        android:layout_below="@+id/relSpinner"
         android:id="@+id/relFoodplan">
 
 
@@ -112,11 +110,10 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="355dp"
+        android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_below="@+id/relFoodplan"
-        android:layout_marginRight="50dp"
         android:layout_marginTop="10dp"
         android:id="@+id/relDietPref">
 
@@ -144,6 +141,29 @@
             android:layout_marginEnd="7dp"
             android:layout_marginRight="7dp"
             android:src="@drawable/ic_baseline_arrow_drop_down_24" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/relDietPref"
+        android:layout_marginTop="10dp"
+        android:id="@+id/relBtn">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:onClick="onBtnDetailclick"/>
 
     </RelativeLayout>
 
