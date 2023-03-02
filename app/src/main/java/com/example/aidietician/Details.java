@@ -24,6 +24,7 @@ public class Details extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        getSupportActionBar().hide();
 
         spinnerGender = findViewById(R.id.spinnerGender);
         spinnerFoodpref = findViewById(R.id.spinnerFoodplan);
