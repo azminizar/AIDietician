@@ -22,6 +22,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onbtnLoginClicked(View v2){
-        startActivity(new Intent(this,Home2.class));
+        startActivity(new Intent(this,Signup.class));
     }
 }
