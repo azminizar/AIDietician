@@ -21,7 +21,7 @@
             android:id="@+id/txtviewHeader"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
-            android:text="HOME"
+            android:text="@string/home2"
             android:textSize="25dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -39,22 +39,6 @@
             app:layout_constraintTop_toTopOf="@+id/txtviewHeader"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:overScrollMode="never"
-        android:scrollbars="none"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header"
-        app:layout_constraintBottom_toTopOf="@+id/viewDivider">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
