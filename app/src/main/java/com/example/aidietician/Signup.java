@@ -93,7 +93,7 @@ public class Signup extends AppCompatActivity {
         Button btnSignup = findViewById(R.id.btnSignUp);
         startActivity(new Intent(this,Details.class));
     }
-
+    //Error in xml :-@color/material_dynamic_primary50
     public void onAcntClick(View v2){
         startActivity(new Intent(this, LoginPage.class));
     }
