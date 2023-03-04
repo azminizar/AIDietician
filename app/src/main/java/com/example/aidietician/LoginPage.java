@@ -3,6 +3,7 @@ package com.example.aidietician;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.aidietician.databinding.ActivityMainBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginPage extends AppCompatActivity {
 
     EditText editTextEmail,editTextPassword;
-
+    ActivityMainBinding binding;
     Button loginBtn;
     FirebaseAuth mAuth;
     @Override
@@ -33,7 +35,6 @@ public class LoginPage extends AppCompatActivity {
         editTextPassword = findViewById(R.id.edtTextPassword);
 
         loginBtn=findViewById(R.id.btnLogin);
-
         //requestWindowFeature(Window.FEATURE_NO_TITLE)
         //getSupportActionBar().hide();
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +60,7 @@ public class LoginPage extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
 
-                                    Intent intent = new Intent(getApplicationContext(),Homepage.class);
+                                    Intent intent = new Intent(getApplicationContext(),Homepage2.class);
                                     startActivity(intent);
                                     finish();
                                     Toast.makeText(LoginPage.this, "Login Successful.", Toast.LENGTH_SHORT).show();

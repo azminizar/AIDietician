@@ -31,6 +31,7 @@ public class Details extends AppCompatActivity {
 
     Button submitBtn;
     Spinner spinnerGender,spinnerFoodpref,spinnerDietplan;
+
     String[] gender = {"Gender","Male","Female","Other"};
     String[] foodpref = {"Food preference","Vegetarian","Strictly Vegetarian","Non-vegetarian","Vegan"};
     String[] dietplan = {"Diet plan","Lose weight","Maintain weight","Gain weight"};
@@ -49,7 +50,7 @@ public class Details extends AppCompatActivity {
         FirebaseFirestore fstore= FirebaseFirestore.getInstance();
         FirebaseAuth mAuth=FirebaseAuth.getInstance();
 
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(Details.this, android.R.layout.simple_spinner_item,gender);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(Details.this, android.R.layout.simple_spinner_item, gender);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerGender.setAdapter(adapter1);
@@ -65,7 +66,7 @@ public class Details extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(Details.this, android.R.layout.simple_spinner_item,foodpref);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(Details.this, android.R.layout.simple_spinner_item, foodpref);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerFoodpref.setAdapter(adapter2);
@@ -80,7 +81,7 @@ public class Details extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(Details.this, android.R.layout.simple_spinner_item,dietplan);
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(Details.this, android.R.layout.simple_spinner_item, dietplan);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerDietplan.setAdapter(adapter3);
@@ -114,7 +115,7 @@ public class Details extends AppCompatActivity {
                 map.put("gender",gender);
                 DocumentReference df = fstore.collection("users").document(userID);
                 df.set(map, SetOptions.merge());
-                Intent intent = new Intent(getApplicationContext(),Homepage.class);
+                Intent intent = new Intent(getApplicationContext(),Homepage2.class);
                 startActivity(intent);
                 finish();
 
