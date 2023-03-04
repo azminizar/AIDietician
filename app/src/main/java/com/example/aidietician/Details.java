@@ -29,7 +29,7 @@ public class Details extends AppCompatActivity {
         spinnerFoodpref = findViewById(R.id.spinnerFoodplan);
         spinnerDietplan = findViewById(R.id.spinnerDietPref);
 
-        ArrayAdapter<String> adapter1 = new  ArrayAdapter<String>(Details.this, android.R.layout.simple_spinner_item,gender);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(Details.this, android.R.layout.simple_spinner_item,gender);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerGender.setAdapter(adapter1);
@@ -45,7 +45,7 @@ public class Details extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<String> adapter2 = new  ArrayAdapter<String>(Details.this, android.R.layout.simple_spinner_item,foodpref);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(Details.this, android.R.layout.simple_spinner_item,foodpref);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerFoodpref.setAdapter(adapter2);
@@ -60,7 +60,7 @@ public class Details extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<String> adapter3 = new  ArrayAdapter<String>(Details.this, android.R.layout.simple_spinner_item,dietplan);
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(Details.this, android.R.layout.simple_spinner_item,dietplan);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerDietplan.setAdapter(adapter3);
