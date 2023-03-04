@@ -42,6 +42,24 @@
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
 
+
+        <EditText
+            android:id="@+id/edttxtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edttxtUsername"
+            android:background="@drawable/input"
+            android:layout_marginTop="25dp"
+            android:drawableLeft="@drawable/ic_baseline_person"
+            android:hint="FullName"
+            android:inputType="textPersonName"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
         <EditText
             android:id="@+id/edttxtPhone"
             android:layout_width="match_parent"
@@ -63,7 +81,7 @@
             android:id="@+id/edttxtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edttxtUsername"
+            android:layout_below="@+id/edttxtName"
             android:layout_marginTop="25dp"
             android:background="@drawable/input"
             android:drawableLeft="@drawable/ic_baseline_security"
