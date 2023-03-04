@@ -2,14 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/menuHome"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/home"/>
+
+    <item
         android:id="@+id/menuAccount"
         android:icon="@drawable/ic_baseline_account_circle_24"
         android:title="@string/Account"/>
 
     <item
-        android:id="@+id/menuHome"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/home"/>
+        android:id="@+id/menuDiet"
+        android:icon="@drawable/ic_baseline_diet"
+        android:title="Diet Plan"/>
 
     <item
         android:id="@+id/menuSettings"
