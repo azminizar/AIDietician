@@ -23,6 +23,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="#3D9A50"
+        app:itemIconTint="@drawable/icon_color"
+        app:itemIconSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation_menu">
 

@@ -29,14 +29,14 @@ public class Homepage2 extends AppCompatActivity {
                 case R.id.menuHome:
                     replaceFragment(new HomeFragment());
                     break;
-                case R.id.menuAccount:
-                    replaceFragment(new ProfileFragment());
-                    break;
                 case R.id.menuDiet:
                     replaceFragment(new DietFragment());
                     break;
-                case R.id.menuSettings:
+                case R.id.menuFitness:
                     replaceFragment(new SettingsFragment());
+                    break;
+                case R.id.menuAccount:
+                    replaceFragment(new ProfileFragment());
                     break;
             }
             return true;

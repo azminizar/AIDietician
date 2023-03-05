@@ -37,10 +37,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_black"
-
-                android:drawableLeft="@drawable/ic_baseline_person"
+                android:drawableLeft="@drawable/ic_baseline_email"
                 android:hint="Email"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"

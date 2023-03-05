@@ -7,19 +7,19 @@
         android:title="@string/home"/>
 
     <item
-        android:id="@+id/menuAccount"
-        android:icon="@drawable/ic_baseline_account_circle_24"
-        android:title="@string/Account"/>
-
-    <item
         android:id="@+id/menuDiet"
         android:icon="@drawable/ic_baseline_diet"
         android:title="Diet Plan"/>
 
     <item
-        android:id="@+id/menuSettings"
-        android:icon="@drawable/ic_baseline_settings_24"
-        android:title="@string/setting"/>
+        android:id="@+id/menuFitness"
+        android:icon="@drawable/fitness"
+        android:title="Fitness"/>
+
+    <item
+        android:id="@+id/menuAccount"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="@string/Account"/>
 
 </menu>
 
