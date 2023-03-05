@@ -4,164 +4,170 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_black"
+    android:background="@drawable/bg_main"
     tools:context=".Details">
 
-    <RelativeLayout
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="100dp"
-        android:id="@+id/relSpinner">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bottom_bg_white"
+        android:layout_marginTop="150dp">
 
-        <Spinner
-            android:id="@+id/spinnerGender"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/relSpinner"
+            android:layout_width="335dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/input"
-            android:backgroundTint="@color/black"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="10dp"
-            android:spinnerMode="dropdown" />
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="100dp">
+
+            <Spinner
+                android:id="@+id/spinnerGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/input_black"
+                android:backgroundTint="@color/white"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:spinnerMode="dropdown" />
 
 
-        <ImageView
-            android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginRight="7dp"
+                android:src="@drawable/ic_baseline_arrow_drop_down_24" />
+
+            <EditText
+                android:id="@+id/edtTxtHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinnerGender"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/input_black"
+                android:hint="Height in cm"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/edtTxtWeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtTxtHeight"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/input_black"
+                android:hint="Weight in kg"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relFoodplan"
+            android:layout_width="335dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="7dp"
-            android:layout_marginRight="7dp"
-            android:src="@drawable/ic_baseline_arrow_drop_down_24" />
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp">
 
-        <EditText
-            android:layout_width="match_parent"
+
+            <Spinner
+                android:id="@+id/spinnerFoodplan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_black"
+                android:backgroundTint="@color/white"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:spinnerMode="dropdown" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginRight="7dp"
+                android:src="@drawable/ic_baseline_arrow_drop_down_24" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relDietPref"
+            android:layout_width="335dp"
             android:layout_height="wrap_content"
-            android:hint="Height in cm"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="15dp"
-            android:layout_marginTop="25dp"
-            android:layout_below="@+id/spinnerGender"
-            android:background="@drawable/input"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="10dp"
-            android:id="@+id/edtTxtHeight"
-            android:inputType="number"/>
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp">
 
-        <EditText
-            android:layout_width="match_parent"
+
+            <Spinner
+                android:id="@+id/spinnerDietPref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_black"
+                android:backgroundTint="@color/white"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:spinnerMode="dropdown" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginRight="7dp"
+                android:src="@drawable/ic_baseline_arrow_drop_down_24" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relBtn"
+            android:layout_width="335dp"
             android:layout_height="wrap_content"
-            android:hint="Weight in kg"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="15dp"
-            android:layout_below="@+id/edtTxtHeight"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/input"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="10dp"
-            android:id="@+id/edtTxtWeight"
-            android:inputType="number"/>
-    </RelativeLayout>
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp">
 
-    <RelativeLayout
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/relSpinner"
-        android:id="@+id/relFoodplan">
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_bg"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:text="Submit"
+                android:textColor="@color/white" />
 
+        </RelativeLayout>
 
-        <Spinner
-            android:id="@+id/spinnerFoodplan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/input"
-            android:backgroundTint="@color/black"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="10dp"
-            android:spinnerMode="dropdown" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="7dp"
-            android:layout_marginRight="7dp"
-            android:src="@drawable/ic_baseline_arrow_drop_down_24" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_below="@+id/relFoodplan"
-        android:layout_marginTop="20dp"
-        android:id="@+id/relDietPref">
-
-
-        <Spinner
-            android:id="@+id/spinnerDietPref"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/input"
-            android:backgroundTint="@color/black"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="10dp"
-            android:spinnerMode="dropdown" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="7dp"
-            android:layout_marginRight="7dp"
-            android:src="@drawable/ic_baseline_arrow_drop_down_24" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_below="@+id/relDietPref"
-        android:layout_marginTop="20dp"
-        android:id="@+id/relBtn">
-
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/input"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="10dp" />
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>
