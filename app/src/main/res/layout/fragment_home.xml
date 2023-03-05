@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Homepage2">
+    tools:context=".HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,26 +14,15 @@
         <RelativeLayout
             android:id="@+id/relHome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:background="@drawable/bg_green_top">
-
-            <TextView
-                android:id="@+id/txtViewHome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home"
-                android:textSize="40dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="20dp"
-                android:layout_centerHorizontal="true"
-                android:textStyle="bold"
-                android:textColor="@color/white"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewWellness"
