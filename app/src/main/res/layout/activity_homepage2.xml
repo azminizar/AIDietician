@@ -7,7 +7,7 @@
     tools:context=".Homepage2">
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/frame_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
@@ -20,13 +20,14 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="#3D9A50"
+        android:background="@drawable/navigation_bg"
         app:itemIconTint="@drawable/icon_color"
         app:itemIconSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:itemTextColor="@color/white"
         app:menu="@menu/navigation_menu">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
