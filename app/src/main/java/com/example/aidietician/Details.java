@@ -31,11 +31,11 @@ public class Details extends AppCompatActivity {
 
     Button submitBtn;
     Spinner spinnerGender,spinnerFoodpref,spinnerDietplan;
+    EditText editTextHeight,editTextWeight;
 
     String[] gender = {"Gender","Male","Female","Other"};
-    String[] foodpref = {"Food preference","Vegetarian","Strictly Vegetarian","Non-vegetarian","Vegan"};
-    String[] dietplan = {"Diet plan","Lose weight","Maintain weight","Gain weight"};
-    EditText editTextHeight,editTextWeight;
+    String[] foodpref = {"Food Preference","Vegetarian","Strictly Vegetarian","Non-Vegetarian","Vegan"};
+    String[] dietplan = {"Diet Plan","Lose Weight","Maintain Weight","Gain Weight"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,14 +47,14 @@ public class Details extends AppCompatActivity {
         editTextHeight = findViewById(R.id.edtTxtHeight);
         editTextWeight = findViewById(R.id.edtTxtWeight);
 
-        FirebaseFirestore fstore= FirebaseFirestore.getInstance();
-        FirebaseAuth mAuth=FirebaseAuth.getInstance();
+        FirebaseFirestore fstore = FirebaseFirestore.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(Details.this, android.R.layout.simple_spinner_item, gender);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(Details.this, android.R.layout.simple_spinner_item,gender);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerGender.setAdapter(adapter1);
-        spinnerGender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerGender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String value1 = parent.getItemAtPosition(position).toString();
@@ -64,7 +64,7 @@ public class Details extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+            });
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(Details.this, android.R.layout.simple_spinner_item, foodpref);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

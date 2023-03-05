@@ -54,7 +54,7 @@ public class Signup extends AppCompatActivity {
                 password= String.valueOf(editTextPassword.getText());
                 fullname= String.valueOf(editTextFullname.getText());
                 phoneno = String.valueOf(editTextPno.getText());
-                dob = String.valueOf(editTextPno.getText());
+                dob = String.valueOf(editTextDob.getText());
                 if(TextUtils.isEmpty(email))
                 {
                     Toast.makeText(Signup.this, "Enter Email", Toast.LENGTH_SHORT).show();
