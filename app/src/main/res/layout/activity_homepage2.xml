@@ -27,7 +27,7 @@
         app:itemIconTint="@drawable/icon_color"
         app:itemIconSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:itemTextColor="@color/white"
+        app:itemTextColor="#0D89FB"
         app:menu="@menu/navigation_menu">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
