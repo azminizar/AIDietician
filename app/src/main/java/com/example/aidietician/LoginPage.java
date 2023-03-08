@@ -16,14 +16,15 @@ import android.widget.Toast;
 import com.example.aidietician.databinding.ActivityMainBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginPage extends AppCompatActivity {
 
-    EditText editTextEmail,editTextPassword;
-    ActivityMainBinding binding;
+    TextInputLayout editTextEmail,editTextPassword;
     Button loginBtn;
     FirebaseAuth mAuth;
     @Override
@@ -31,18 +32,18 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAuth=FirebaseAuth.getInstance();
-        editTextEmail = findViewById(R.id.edtTextEmail);
-        editTextPassword = findViewById(R.id.edtTextPassword);
+        editTextEmail = findViewById(R.id.txtfldEmail);
+        editTextPassword = findViewById(R.id.txtfldPassword);
 
-        loginBtn=findViewById(R.id.btnLogin);
+        loginBtn=findViewById(R.id.buttonLogin);
         //requestWindowFeature(Window.FEATURE_NO_TITLE)
         //getSupportActionBar().hide();
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email,password;
-                email = String.valueOf(editTextEmail.getText());
-                password= String.valueOf(editTextPassword.getText());
+                email = String.valueOf(editTextEmail.getEditText());
+                password= String.valueOf(editTextPassword.getEditText());
                 if(TextUtils.isEmpty(email))
                 {
                     Toast.makeText(LoginPage.this, "Enter Email", Toast.LENGTH_SHORT).show();
