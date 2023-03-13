@@ -16,15 +16,14 @@ import android.widget.Toast;
 import com.example.aidietician.databinding.ActivityMainBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginPage extends AppCompatActivity {
 
-    TextInputLayout editTextEmail,editTextPassword;
+    EditText editTextEmail,editTextPassword;
+    ActivityMainBinding binding;
     Button loginBtn;
     FirebaseAuth mAuth;
     @Override
@@ -32,8 +31,8 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAuth=FirebaseAuth.getInstance();
-        editTextEmail = findViewById(R.id.txtfldEmail);
-        editTextPassword = findViewById(R.id.txtfldPassword);
+        editTextEmail = findViewById(R.id.edtTextEmail);
+        editTextPassword = findViewById(R.id.edtTextPassword);
 
         loginBtn=findViewById(R.id.buttonLogin);
         //requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -43,8 +42,8 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String email,password;
-                email = String.valueOf(editTextEmail.getEditText());
-                password= String.valueOf(editTextPassword.getEditText());
+                email = String.valueOf(editTextEmail.getText());
+                password= String.valueOf(editTextPassword.getText());
                 if(TextUtils.isEmpty(email))
                 {
                     Toast.makeText(LoginPage.this, "Enter Email", Toast.LENGTH_SHORT).show();
@@ -62,7 +61,7 @@ public class LoginPage extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
 
-                                    Intent intent = new Intent(getApplicationContext(),Homepage2.class);
+                                    Intent intent = new Intent(getApplicationContext(),Homepage.class);
                                     startActivity(intent);
                                     finish();
                                     Toast.makeText(LoginPage.this, "Login Successful.", Toast.LENGTH_SHORT).show();
