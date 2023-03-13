@@ -129,7 +129,7 @@
                         android:layout_gravity="right"
                         android:layout_marginTop="30dp"
                         android:layout_marginRight="30dp"
-                        android:src="@drawable/diet_icon" />
+                        android:src="@drawable/diet" />
 
                     <TextView
                         android:layout_width="wrap_content"

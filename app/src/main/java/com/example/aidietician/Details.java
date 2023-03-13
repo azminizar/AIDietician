@@ -3,6 +3,7 @@ package com.example.aidietician;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import android.widget.Spinner;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -31,11 +33,12 @@ public class Details extends AppCompatActivity {
 
     Button submitBtn;
     Spinner spinnerGender,spinnerFoodpref,spinnerDietplan;
-    EditText editTextHeight,editTextWeight;
+    TextInputLayout editTextHeight,editTextWeight;
 
     String[] gender = {"Gender","Male","Female","Other"};
     String[] foodpref = {"Food Preference","Vegetarian","Strictly Vegetarian","Non-Vegetarian","Vegan"};
     String[] dietplan = {"Diet Plan","Lose Weight","Maintain Weight","Gain Weight"};
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +47,8 @@ public class Details extends AppCompatActivity {
         spinnerGender = findViewById(R.id.spinnerGender);
         spinnerFoodpref = findViewById(R.id.spinnerFoodplan);
         spinnerDietplan = findViewById(R.id.spinnerDietPref);
-        editTextHeight = findViewById(R.id.edtTxtHeight);
-        editTextWeight = findViewById(R.id.edtTxtWeight);
+        editTextHeight = findViewById(R.id.txtFldHeight);
+        editTextWeight = findViewById(R.id.txtFldWeight);
 
         FirebaseFirestore fstore = FirebaseFirestore.getInstance();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -101,8 +104,8 @@ public class Details extends AppCompatActivity {
 
                 String userID= mAuth.getCurrentUser().getUid();
                 String weight,height,foodpref,dietplan,gender;
-                weight = String.valueOf(editTextWeight.getText());
-                height = String.valueOf(editTextHeight.getText());
+                weight = String.valueOf(editTextWeight.getEditText());
+                height = String.valueOf(editTextHeight.getEditText());
                 foodpref=spinnerFoodpref.getSelectedItem().toString();
                 dietplan=spinnerDietplan.getSelectedItem().toString();
                 gender=spinnerGender.getSelectedItem().toString();

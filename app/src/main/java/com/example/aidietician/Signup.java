@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,11 +33,11 @@ import java.util.Map;
 public class Signup extends AppCompatActivity {
 
 
-    EditText editTextEmail,editTextPassword,editTextPno,editTextDob,editTextFullname;
+    TextInputLayout edttxtEmail,edttxtPassword,edttxtDOB,edttxtPhone,edttxtName;
     Button signUpBtn;
     FirebaseAuth mAuth;
-    DatePickerDialog.OnDateSetListener setListener;
     FirebaseFirestore f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,41 +45,23 @@ public class Signup extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
         f=FirebaseFirestore.getInstance();
-        editTextEmail = findViewById(R.id.edttxtUsername);
-        editTextPassword = findViewById(R.id.edttxtPassword);
-        editTextDob=findViewById(R.id.edttxtDOB);
-        editTextPno = findViewById(R.id.edttxtPhone);
+        edttxtEmail = findViewById(R.id.txtFldEmail);
+        edttxtPassword = findViewById(R.id.txtFldPassword);
+        edttxtDOB = findViewById(R.id.txtFldDOB);
+        edttxtPhone = findViewById(R.id.txtFldPhone);
         signUpBtn=findViewById(R.id.btnSignUp);
-        editTextFullname = findViewById(R.id.edttxtName);
-        Calendar calendar = Calendar.getInstance();
-        final int year = calendar.get(Calendar.YEAR);
-        final int month = calendar.get(Calendar.MONTH);
-        final int dayofMonth = calendar.get(Calendar.DAY_OF_MONTH);
+        edttxtName = findViewById(R.id.txtFldName);
 
-        editTextDob.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        Signup.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        month = month+1;
-                        String date = dayOfMonth+"/"+month+"/"+year;
-                        editTextDob.setText(date);
-                    }
-                },year,month,dayofMonth);
-                datePickerDialog.show();
-            }
-        });
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email,password,phoneno,fullname,dob;
-                email = String.valueOf(editTextEmail.getText());
-                password= String.valueOf(editTextPassword.getText());
-                fullname= String.valueOf(editTextFullname.getText());
-                phoneno = String.valueOf(editTextPno.getText());
-                dob = String.valueOf(editTextDob.getText());
+                email = String.valueOf(edttxtEmail.getEditText());
+                password= String.valueOf(edttxtPassword.getEditText());
+                fullname= String.valueOf(edttxtName.getEditText());
+                phoneno = String.valueOf(edttxtPhone.getEditText());
+                dob = String.valueOf(edttxtDOB.getEditText());
+
                 if(TextUtils.isEmpty(email))
                 {
                     Toast.makeText(Signup.this, "Enter Email", Toast.LENGTH_SHORT).show();

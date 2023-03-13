@@ -39,6 +39,7 @@ public class LoginPage extends AppCompatActivity {
         //requestWindowFeature(Window.FEATURE_NO_TITLE)
         //getSupportActionBar().hide();
         loginBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 String email,password;
