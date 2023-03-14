@@ -1,33 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_main"
     tools:context=".Details">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RelativeLayout
-            android:id="@+id/relLayoutSignup"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="@drawable/signup_bg">
-        </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@drawable/bottom_bg_white"
         android:layout_marginTop="150dp">
 
         <RelativeLayout
             android:id="@+id/relSpinner"
             android:layout_width="335dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="100dp">
 
             <Spinner
@@ -35,63 +26,58 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/white"
                 android:background="@drawable/input_black"
+                android:backgroundTint="@color/white"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
                 android:spinnerMode="dropdown" />
+
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginEnd="7dp"
                 android:layout_marginRight="7dp"
                 android:src="@drawable/ic_baseline_arrow_drop_down_24" />
 
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtFldHeight"
+            <EditText
+                android:id="@+id/edtTxtHeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Height in cm"
                 android:layout_below="@+id/spinnerGender"
-                app:boxBackgroundColor="#101010"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="#090909">
+                android:layout_marginTop="25dp"
+                android:background="@drawable/input_black"
+                android:hint="Height in cm"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15dp" />
 
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtTextHeight"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    tools:ignore="TouchTargetSizeCheck"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtFldWeight"
+            <EditText
+                android:id="@+id/edtTxtWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_below="@+id/edtTxtHeight"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/input_black"
                 android:hint="Weight in kg"
-                android:layout_below="@+id/txtFldHeight"
-                app:boxBackgroundColor="#101010"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="#090909">
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtTextWeight"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    tools:ignore="TouchTargetSizeCheck"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15dp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -109,6 +95,10 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_black"
                 android:backgroundTint="@color/white"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
                 android:spinnerMode="dropdown" />
 
             <ImageView
@@ -138,6 +128,10 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_black"
                 android:backgroundTint="@color/white"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
                 android:spinnerMode="dropdown" />
 
             <ImageView
@@ -164,15 +158,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/loginbtn_bg"
-                android:text="Log in"
-                android:textColor="@color/white"
-                android:onClick="onClick"/>
+                android:background="@drawable/btn_bg"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:text="Submit"
+                android:textColor="@color/white" />
 
         </RelativeLayout>
 
     </LinearLayout>
 
-    </RelativeLayout>
-
-</ScrollView>
+</RelativeLayout>

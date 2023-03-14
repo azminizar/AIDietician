@@ -3,22 +3,18 @@ package com.example.aidietician;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,18 +22,17 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.net.Inet4Address;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Signup extends AppCompatActivity {
 
 
-    TextInputLayout edttxtEmail,edttxtPassword,edttxtDOB,edttxtPhone,edttxtName;
+    EditText editTextEmail,editTextPassword,editTextPno,editTextDob,editTextFullname;
+
     Button signUpBtn;
     FirebaseAuth mAuth;
     FirebaseFirestore f;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,23 +40,21 @@ public class Signup extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
         f=FirebaseFirestore.getInstance();
-        edttxtEmail = findViewById(R.id.txtFldEmail);
-        edttxtPassword = findViewById(R.id.txtFldPassword);
-        edttxtDOB = findViewById(R.id.txtFldDOB);
-        edttxtPhone = findViewById(R.id.txtFldPhone);
+        editTextEmail = findViewById(R.id.edttxtUsername);
+        editTextPassword = findViewById(R.id.edttxtPassword);
+        editTextDob=findViewById(R.id.edttxtDOB);
+        editTextPno = findViewById(R.id.edttxtPhone);
         signUpBtn=findViewById(R.id.btnSignUp);
-        edttxtName = findViewById(R.id.txtFldName);
-
+        editTextFullname = findViewById(R.id.edttxtName);
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email,password,phoneno,fullname,dob;
-                email = String.valueOf(edttxtEmail.getEditText());
-                password= String.valueOf(edttxtPassword.getEditText());
-                fullname= String.valueOf(edttxtName.getEditText());
-                phoneno = String.valueOf(edttxtPhone.getEditText());
-                dob = String.valueOf(edttxtDOB.getEditText());
-
+                email = String.valueOf(editTextEmail.getText());
+                password= String.valueOf(editTextPassword.getText());
+                fullname= String.valueOf(editTextFullname.getText());
+                phoneno = String.valueOf(editTextPno.getText());
+                dob = String.valueOf(editTextDob.getText());
                 if(TextUtils.isEmpty(email))
                 {
                     Toast.makeText(Signup.this, "Enter Email", Toast.LENGTH_SHORT).show();
@@ -107,7 +100,7 @@ public class Signup extends AppCompatActivity {
                                     documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
-                                           // Log.d(TAG,"OnSuccess:user profile created for:"+userID);
+                                            // Log.d(TAG,"OnSuccess:user profile created for:"+userID);
                                         }
                                     });
 
