@@ -3,6 +3,7 @@ package com.example.aidietician;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,8 +32,8 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAuth=FirebaseAuth.getInstance();
-        editTextEmail = findViewById(R.id.edtTextEmail);
-        editTextPassword = findViewById(R.id.edtTextPassword);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
 
         loginBtn=findViewById(R.id.buttonLogin);
         //requestWindowFeature(Window.FEATURE_NO_TITLE)

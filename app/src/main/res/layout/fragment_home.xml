@@ -27,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
+                android:fontFamily="@font/poppins"
                 android:text="Hey User..."
                 android:textColor="@color/black"
                 android:textSize="20dp"
@@ -84,6 +85,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins"
                         android:text="Wellness Level"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
@@ -134,12 +136,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="60dp"
                         android:layout_marginRight="40dp"
+                        android:fontFamily="@font/poppins"
                         android:text="Diet"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginStart="15dp"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -174,12 +177,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="70dp"
                         android:layout_marginRight="20dp"
+                        android:fontFamily="@font/poppins"
                         android:text="Activity"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:layout_marginTop="70dp"
-                        android:layout_marginStart="15dp"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -215,12 +219,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="70dp"
                         android:layout_marginRight="25dp"
+                        android:fontFamily="@font/poppins"
                         android:text="Water"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:layout_marginTop="70dp"
-                        android:layout_marginStart="15dp"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -256,12 +261,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="70dp"
                         android:layout_marginRight="25dp"
+                        android:fontFamily="@font/poppins"
                         android:text="Weight"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:layout_marginTop="70dp"
-                        android:layout_marginStart="15dp"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -297,12 +303,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="70dp"
                         android:layout_marginRight="33dp"
+                        android:fontFamily="@font/poppins"
                         android:text="BMI"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:layout_marginTop="70dp"
-                        android:layout_marginStart="15dp"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -338,12 +345,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="70dp"
                         android:layout_marginRight="30dp"
+                        android:fontFamily="@font/poppins"
                         android:text="Sleep"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:layout_marginTop="70dp"
-                        android:layout_marginStart="15dp"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
