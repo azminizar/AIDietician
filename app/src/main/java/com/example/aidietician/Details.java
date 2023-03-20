@@ -113,8 +113,17 @@ public class Details extends AppCompatActivity {
                 map.put("foodpref",foodpref);
                 map.put("dietplan",dietplan);
                 map.put("gender",gender);
+                Map<String,Object> map2 = new HashMap<>();
+                map2.put("weight",weight);
+                int w=Integer.parseInt(weight);
+                int h=Integer.parseInt(height);
+                Integer bmi=10000*w/(h*h);
+                map2.put("bmi",String.valueOf(bmi));
+                editTextWeight.setText(String.valueOf(bmi));
                 DocumentReference df = fstore.collection("users").document(userID);
+                DocumentReference df2=fstore.collection("home").document(userID);
                 df.set(map, SetOptions.merge());
+                df2.set(map2, SetOptions.merge());
                 Intent intent = new Intent(getApplicationContext(),Homepage.class);
                 startActivity(intent);
                 finish();
