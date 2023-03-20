@@ -3,12 +3,16 @@ package com.example.aidietician;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,6 +26,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.net.Inet4Address;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,7 +34,7 @@ public class Signup extends AppCompatActivity {
 
 
     EditText editTextEmail,editTextPassword,editTextPno,editTextDob,editTextFullname;
-
+    DatePickerDialog.OnDateSetListener setListener;
     Button signUpBtn;
     FirebaseAuth mAuth;
     FirebaseFirestore f;
@@ -46,6 +51,47 @@ public class Signup extends AppCompatActivity {
         editTextPno = findViewById(R.id.edttxtPhone);
         signUpBtn=findViewById(R.id.btnSignUp);
         editTextFullname = findViewById(R.id.edttxtName);
+        Calendar calendar = Calendar.getInstance();
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+        final int month = calendar.get(Calendar.MONTH);
+        final int year = calendar.get(Calendar.YEAR);
+
+        editTextDob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        Signup.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth
+                        , setListener, year, month, day);
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.show();
+            }
+        });
+
+        setListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month+1;
+                String date = day+"/"+month+"/"+year;
+                editTextDob.setText(date);
+            }
+        };
+
+        editTextDob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        Signup.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        month = month+1;
+                        String date = dayOfMonth+"/"+month+"/"+year;
+                        editTextDob.setText(date);
+                    }
+                },year,month,day);
+                datePickerDialog.show();
+            }
+        });
+
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

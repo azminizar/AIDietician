@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:fontFamily="@font/poppins"
                 android:text="Hey ..."
                 android:textColor="@color/black"
@@ -38,7 +38,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="55dp"
                 android:src="@drawable/waving_hand" />
 
         </LinearLayout>
@@ -63,7 +63,7 @@
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -109,7 +109,7 @@
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -123,11 +123,18 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="20dp">
 
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/diet" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:layout_marginStart="10dp">
+                            android:layout_marginStart="30dp">
 
                             <TextView
                                 android:id="@+id/calText"
@@ -149,13 +156,6 @@
                                 android:layout_marginStart="5dp"/>
 
                         </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:layout_marginStart="20dp"
-                            android:src="@drawable/diet" />
 
 
                     </LinearLayout>
@@ -185,7 +185,7 @@
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -199,11 +199,20 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="20dp">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/activity" />
+
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginStart="10dp">
+                        android:layout_marginStart="30dp">
 
                         <TextView
                             android:id="@+id/actText"
@@ -225,15 +234,6 @@
                             android:layout_marginStart="5dp"/>
 
                     </LinearLayout>
-
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="30dp"
-                        android:src="@drawable/activity" />
 
                 </LinearLayout>
 
@@ -262,7 +262,7 @@
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -277,11 +277,20 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="20dp">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/water_icon" />
+
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginStart="10dp">
+                        android:layout_marginStart="30dp">
 
                         <TextView
                             android:id="@+id/waterText"
@@ -303,14 +312,6 @@
                             android:layout_marginStart="5dp"/>
 
                     </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="30dp"
-                       android:layout_marginStart="30dp"
-                        android:src="@drawable/water_icon" />
 
                 </LinearLayout>
 
@@ -339,7 +340,7 @@
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -354,11 +355,20 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="20dp">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/weight_icon" />
+
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginStart="10dp">
+                        android:layout_marginStart="30dp">
 
                         <TextView
                             android:id="@+id/weightText"
@@ -380,14 +390,6 @@
                             android:layout_marginStart="5dp"/>
 
                     </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="30dp"
-                       android:layout_marginStart="30dp"
-                        android:src="@drawable/weight_icon" />
 
                 </LinearLayout>
 
@@ -416,7 +418,7 @@
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -431,11 +433,19 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="20dp">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/bmi_icon" />
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginStart="10dp">
+                        android:layout_marginStart="30dp">
 
                         <TextView
                             android:id="@+id/bmiText"
@@ -457,14 +467,6 @@
                             android:layout_marginStart="5dp"/>
 
                     </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="30dp"
-                        android:src="@drawable/bmi_icon" />
 
                 </LinearLayout>
 
@@ -493,7 +495,7 @@
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -508,11 +510,19 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="20dp">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/sleep_icon" />
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginStart="10dp">
+                        android:layout_marginStart="30dp">
 
                         <TextView
                             android:id="@+id/sleepText"
@@ -534,14 +544,6 @@
                             android:layout_marginStart="5dp"/>
 
                     </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="30dp"
-                        android:src="@drawable/sleep_icon" />
 
                 </LinearLayout>
 

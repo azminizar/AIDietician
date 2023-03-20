@@ -218,19 +218,19 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/bmi_icon"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="30dp"
-                    android:layout_marginStart="30dp"/>
+                    android:src="@drawable/bmi_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/poppins"
                     android:text="Diet Chart"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/poppins"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="40dp"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -282,6 +282,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
+            android:layout_marginBottom="10dp"
             android:layout_gravity="fill"
             app:cardCornerRadius="8dp"
             app:cardElevation="2dp">
