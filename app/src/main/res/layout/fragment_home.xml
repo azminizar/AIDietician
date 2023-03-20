@@ -28,7 +28,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins"
-                android:text="Hey User..."
+                android:text="Hey ..."
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -130,10 +130,11 @@
                             android:layout_marginStart="10dp">
 
                             <TextView
+                                android:id="@+id/calText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
-                                android:text="50"
+                                android:text=""
                                 android:textColor="#39C73B"
                                 android:textSize="60dp"
                                 android:textStyle="bold" />
@@ -205,6 +206,7 @@
                         android:layout_marginStart="10dp">
 
                         <TextView
+                            android:id="@+id/actText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter"
@@ -216,7 +218,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="KCal"
+                            android:text="Mins"
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:textSize="20dp"
@@ -282,6 +284,7 @@
                         android:layout_marginStart="10dp">
 
                         <TextView
+                            android:id="@+id/waterText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter"
@@ -293,7 +296,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="KCal"
+                            android:text="Glasses"
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:textSize="20dp"
@@ -358,6 +361,7 @@
                         android:layout_marginStart="10dp">
 
                         <TextView
+                            android:id="@+id/weightText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter"
@@ -369,7 +373,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="KCal"
+                            android:text="Kg"
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:textSize="20dp"
@@ -434,6 +438,7 @@
                         android:layout_marginStart="10dp">
 
                         <TextView
+                            android:id="@+id/bmiText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter"
@@ -445,7 +450,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="KCal"
+                            android:text="Kg/m"
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:textSize="20dp"
@@ -510,6 +515,7 @@
                         android:layout_marginStart="10dp">
 
                         <TextView
+                            android:id="@+id/sleepText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter"
@@ -521,7 +527,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="KCal"
+                            android:text="Hrs"
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:textSize="20dp"

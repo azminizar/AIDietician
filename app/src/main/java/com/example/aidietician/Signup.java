@@ -92,40 +92,64 @@ public class Signup extends AppCompatActivity {
 
                                     String userID = mAuth.getCurrentUser().getUid();
                                     DocumentReference documentReference= f.collection( "users" ).document(userID);
+                                    DocumentReference documentReference1= f.collection( "home" ).document(userID);
+                                    DocumentReference documentReference2= f.collection( "diet" ).document(userID);
+                                    DocumentReference documentReference3= f.collection( "diseases" ).document(userID);
+                                    DocumentReference documentReference4= f.collection( "activity" ).document(userID);
+
+
                                     Map<String,Object> user = new HashMap<>();
                                     user.put("email",email);
                                     user.put("fname",fullname);
                                     user.put("pno",phoneno);
                                     user.put("dob",dob);
+                                    Map<String,Object> home = new HashMap<>();
+                                    home.put("fname",fullname);
+                                    home.put("activity","0");
+                                    home.put("cal_intake","0");
+                                    home.put("weight","0");
+                                    home.put("water","0");
+                                    home.put("sleep","0");
+                                    home.put("bmi","0");
+                                    Map<String,Object> diet= new HashMap<>();
+                                    diet.put("time","0");
+                                    diet.put("food_id","0");
+                                    diet.put("calories","0");
+                                    diet.put("date","0");
+                                    Map<String,Object> activity = new HashMap<>();
+                                    activity.put("date","0");
+                                    activity.put("cal_burned","0");
+                                    activity.put("act_time","0");
+                                    documentReference1.set(home);
+                                    documentReference2.set(diet);
+                                    documentReference4.set(activity);
+
                                     documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             // Log.d(TAG,"OnSuccess:user profile created for:"+userID);
+                                            Intent intent= new Intent(getApplicationContext(),Details.class );
+                                            startActivity(intent);
+                                            finish();
                                         }
                                     });
 
 
                                 } else {
                                     // If sign in fails, display a message to the user.
-                                    Toast.makeText(Signup.this, "Authentication failed.",
+                                    Toast.makeText(Signup.this, "Unable to Sign up",
                                             Toast.LENGTH_SHORT).show();
 
                                 }
                             }
                         });
 
-                Intent intent= new Intent(getApplicationContext(),Details.class );
-                startActivity(intent);
-                finish();
+
             }
         });
     }
 
-    public void onBtnNextClick(View v){
-        Button btnSignup = findViewById(R.id.btnSignUp);
-        startActivity(new Intent(this,Details.class));
-        finish();
-    }
+
     //Error in xml :-@color/material_dynamic_primary50
     public void onAcntClick(View v2){
         startActivity(new Intent(this, LoginPage.class));
