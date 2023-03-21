@@ -123,18 +123,12 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="20dp">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:layout_marginStart="10dp"
-                            android:src="@drawable/diet" />
-
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:layout_marginStart="30dp">
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="20dp">
 
                             <TextView
                                 android:id="@+id/calText"
@@ -157,15 +151,21 @@
 
                         </LinearLayout>
 
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="30dp"
+                            android:src="@drawable/diet" />
 
                     </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginRight="40dp"
+                        android:layout_marginRight="20dp"
                         android:layout_marginTop="30dp"
+                        android:layout_marginStart="15dp"
                         android:fontFamily="@font/poppins"
                         android:text="Diet"
                         android:textColor="@color/black"
@@ -199,27 +199,19 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="20dp">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/activity" />
-
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginStart="30dp">
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="20dp">
 
                         <TextView
                             android:id="@+id/actText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter"
-                            android:text="50"
+                            android:text=""
                             android:textColor="#0E89F9"
                             android:textSize="60dp"
                             android:textStyle="bold" />
@@ -234,6 +226,13 @@
                             android:layout_marginStart="5dp"/>
 
                     </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/activity" />
 
                 </LinearLayout>
 
@@ -277,27 +276,19 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="20dp">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/water_icon" />
-
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginStart="30dp">
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="20dp">
 
                         <TextView
                             android:id="@+id/waterText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter"
-                            android:text="50"
+                            android:text=""
                             android:textColor="#FD9A1D"
                             android:textSize="60dp"
                             android:textStyle="bold" />
@@ -305,13 +296,20 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Glasses"
+                            android:text="Glass"
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:textSize="20dp"
                             android:layout_marginStart="5dp"/>
 
                     </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/water_icon" />
 
                 </LinearLayout>
 
@@ -355,27 +353,19 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="20dp">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/weight_icon" />
-
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginStart="30dp">
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="20dp">
 
                         <TextView
                             android:id="@+id/weightText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter"
-                            android:text="50"
+                            android:text=""
                             android:textColor="#ED3636"
                             android:textSize="60dp"
                             android:textStyle="bold" />
@@ -390,6 +380,13 @@
                             android:layout_marginStart="5dp"/>
 
                     </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/weight_icon" />
 
                 </LinearLayout>
 
@@ -433,26 +430,19 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="20dp">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/bmi_icon" />
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginStart="30dp">
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="20dp">
 
                         <TextView
                             android:id="@+id/bmiText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter"
-                            android:text="50"
+                            android:text=""
                             android:textColor="#39C73B"
                             android:textSize="60dp"
                             android:textStyle="bold" />
@@ -467,6 +457,13 @@
                             android:layout_marginStart="5dp"/>
 
                     </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/bmi_icon" />
 
                 </LinearLayout>
 
@@ -510,26 +507,19 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="20dp">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/sleep_icon" />
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginStart="30dp">
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="20dp">
 
                         <TextView
                             android:id="@+id/sleepText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter"
-                            android:text="50"
+                            android:text=""
                             android:textColor="#0E89F9"
                             android:textSize="60dp"
                             android:textStyle="bold" />
@@ -544,6 +534,13 @@
                             android:layout_marginStart="5dp"/>
 
                     </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/sleep_icon" />
 
                 </LinearLayout>
 

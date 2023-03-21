@@ -71,10 +71,13 @@
                         android:textColor="@color/black"
                         android:textSize="12dp"/>
 
-                    <EditText
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="15dp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="12dp"/>
 
                 </LinearLayout>
 
@@ -93,10 +96,13 @@
                         android:textColor="@color/black"
                         android:textSize="12dp"/>
 
-                    <EditText
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="15dp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="12dp"/>
 
                 </LinearLayout>
 
@@ -117,7 +123,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
+                android:layout_height="200dp"
                 android:background="@drawable/bg_diet"
                 android:orientation="vertical">
 
@@ -146,10 +152,13 @@
                         android:textColor="@color/black"
                         android:textSize="12dp"/>
 
-                    <EditText
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="15dp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="12dp"/>
 
                 </LinearLayout>
 
@@ -168,10 +177,13 @@
                         android:textColor="@color/black"
                         android:textSize="12dp"/>
 
-                    <EditText
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="15dp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="12dp"/>
 
                 </LinearLayout>
 
