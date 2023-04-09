@@ -153,12 +153,18 @@
                         android:textSize="12dp"/>
 
                     <TextView
+                        android:id="@+id/txtViewMeal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="12dp"/>
+                        android:layout_marginStart="10dp"
+                        android:hint="Select Meal"
+                        android:textColorHint="@color/black"
+                        android:padding="5dp"
+                        android:textSize="12dp"
+
+                        android:fontFamily="@font/poppins"/>
+
+
 
                 </LinearLayout>
 
@@ -202,7 +208,8 @@
                         android:fontFamily="@font/poppins"
                         android:text="Add Meal"
                         android:textColor="@color/white"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        tools:ignore="TouchTargetSizeCheck"
+                        android:onClick="onMealClick"/>
 
                 </RelativeLayout>
 
@@ -224,20 +231,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:background="@drawable/bg_lightgreen"
+                android:background="@drawable/bg_lightred"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="30dp"
-                    android:src="@drawable/bmi_icon" />
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/diet_chart" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/poppins"
                     android:text="Diet Chart"
@@ -266,11 +273,11 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/bmi_icon"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginStart="30dp"/>
+                    android:layout_width="35dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/diet_history"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -279,7 +286,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:fontFamily="@font/poppins"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="13dp"
                     android:layout_marginTop="40dp"/>
 
 
@@ -302,24 +309,24 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:background="@drawable/bg_yellow"
+                android:background="@drawable/bg_lightred"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/bmi_icon"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginStart="30dp"/>
+                    android:layout_width="35dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/recipe_list"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="20dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Recepie List"
+                    android:text="Recipe List"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:fontFamily="@font/poppins"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="40dp"/>
 
 

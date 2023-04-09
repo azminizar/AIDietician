@@ -86,6 +86,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_black"
                 android:backgroundTint="@color/white"
+                android:contentDescription="@string/default_web_client_id"
                 android:spinnerMode="dropdown" />
 
             <ImageView

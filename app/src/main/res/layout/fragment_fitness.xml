@@ -114,11 +114,11 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/bmi_icon"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/fitness_tracker"
                         android:layout_marginTop="30dp"
-                        android:layout_marginStart="30dp"/>
+                        android:layout_marginStart="20dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -127,7 +127,7 @@
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:fontFamily="@font/poppins"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="17dp"
                         android:layout_marginTop="37dp"/>
 
                 </LinearLayout>
@@ -152,11 +152,11 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/bmi_icon"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="30dp"/>
+                        android:layout_width="35dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/exercises"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginStart="20dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -174,7 +174,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardDietRecepie"
+                android:id="@+id/cardFitnessPlan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -192,11 +192,11 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/bmi_icon"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="30dp"/>
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/fitness_plan"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="20dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -205,7 +205,7 @@
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:fontFamily="@font/poppins"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="15dp"
                         android:layout_marginTop="37dp"/>
 
 
