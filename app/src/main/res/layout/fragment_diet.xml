@@ -145,6 +145,7 @@
                     android:layout_marginStart="15dp">
 
                     <TextView
+                        android:id="@+id/nameofItem"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins"
@@ -153,17 +154,14 @@
                         android:textSize="12dp"/>
 
                     <TextView
-                        android:id="@+id/txtViewMeal"
+                        android:id="@+id/selectMeal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:hint="Select Meal"
-                        android:textColorHint="@color/black"
-                        android:padding="5dp"
+                        android:fontFamily="@font/poppins"
                         android:textSize="12dp"
-
-                        android:fontFamily="@font/poppins"/>
-
+                        android:layout_marginStart="10dp"
+                        android:text="Select meal"
+                        android:textColor="@color/black"/>
 
 
                 </LinearLayout>
@@ -206,10 +204,10 @@
                         android:layout_marginEnd="30dp"
                         android:background="@drawable/loginbtn_bg"
                         android:fontFamily="@font/poppins"
+                        android:onClick="onMealClick"
                         android:text="Add Meal"
                         android:textColor="@color/white"
-                        tools:ignore="TouchTargetSizeCheck"
-                        android:onClick="onMealClick"/>
+                        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
                 </RelativeLayout>
 
@@ -235,8 +233,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="25dp"
                     android:src="@drawable/diet_chart" />
@@ -245,7 +243,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="35dp"
                     android:fontFamily="@font/poppins"
                     android:text="Diet Chart"
                     android:textColor="@color/black"
@@ -274,9 +272,9 @@
 
                 <ImageView
                     android:layout_width="35dp"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:src="@drawable/diet_history"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="25dp"
                     android:layout_marginStart="20dp"/>
 
                 <TextView
@@ -287,7 +285,7 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/poppins"
                     android:layout_marginStart="13dp"
-                    android:layout_marginTop="40dp"/>
+                    android:layout_marginTop="35dp"/>
 
 
             </LinearLayout>
@@ -314,7 +312,7 @@
 
                 <ImageView
                     android:layout_width="35dp"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:src="@drawable/recipe_list"
                     android:layout_marginTop="25dp"
                     android:layout_marginStart="20dp"/>
@@ -327,7 +325,7 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/poppins"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="40dp"/>
+                    android:layout_marginTop="35dp"/>
 
 
             </LinearLayout>

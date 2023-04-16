@@ -1,18 +1,29 @@
 package com.example.aidietician;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +40,15 @@ public class DietFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private CardView nextMeal;
+    private CardView dietChart;
+    private CardView dietHistory;
+    private CardView dietRecipe;
+
+  /*  private ArrayList<String> arrayList;
+    private Dialog dialog;
+    private TextView selectMeal; */
 
     public DietFragment() {
         // Required empty public constructor
@@ -65,6 +85,72 @@ public class DietFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_diet, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_diet, container, false);
+
+        nextMeal = view.findViewById(R.id.cardNextMeal);
+        dietChart = view.findViewById(R.id.cardDietChart);
+        dietHistory = view.findViewById(R.id.cardDietHistory);
+        dietRecipe = view.findViewById(R.id.cardDietRecepie);
+
+        dietChart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),Dietchart.class);
+                startActivity(intent);
+            }
+        });
+
+      /*  selectMeal = view.findViewById(R.id.selectMeal);
+        arrayList = new ArrayList<>();
+
+        arrayList.add("Rice");
+        arrayList.add("Chapati");
+        arrayList.add("Salad");
+        arrayList.add("Oats");
+        arrayList.add("Salad");
+
+        selectMeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog = new Dialog(DietFragment.this);
+                dialog.setContentView(R.layout.searchable_spinner);
+                dialog.getWindow().setLayout(650,800);
+                dialog.show();
+
+                EditText editText = dialog.findViewById(R.id.edit_text);
+                ListView listView = dialog.findViewById(R.id.list_view);
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(DietFragment.this, android.R.layout.simple_list_item_1,arrayList);
+
+                listView.setAdapter(adapter);
+                editText.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        adapter.getFilter().filter(s);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+
+                    }
+                });
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        selectMeal.setText(adapter.getItem(position));
+                        dialog.dismiss();
+                    }
+                });
+            }
+        }); */
+
+        return view;
     }
 }
