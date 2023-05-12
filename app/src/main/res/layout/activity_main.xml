@@ -92,6 +92,16 @@
             android:hint="Password"
             android:inputType="textPassword" />
 
+        <CheckBox
+            android:id="@+id/showPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Password"
+            android:fontFamily="@font/poppins"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="32dp"
+            android:checked="false"/>
+
         <Button
             android:id="@+id/buttonLogin"
             android:layout_width="match_parent"

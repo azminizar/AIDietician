@@ -35,7 +35,7 @@ public class Homepage extends AppCompatActivity {
                 case R.id.menuDiet:
                     replaceFragment(new DietFragment());
                     break;
-                case R.id.menuFitness: replaceFragment(new SettingsFragment());
+                case R.id.menuFitness: replaceFragment(new FitnessFragment());
                     break;
             }
             return true;

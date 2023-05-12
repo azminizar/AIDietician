@@ -4,16 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.harrywhewell.scrolldatepicker.DayScrollDatePicker;
 import com.harrywhewell.scrolldatepicker.OnDateSelectedListener;
 
-import org.jetbrains.annotations.Nullable;
-
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Dietchart extends AppCompatActivity {
@@ -38,10 +33,10 @@ public class Dietchart extends AppCompatActivity {
         recycleDiet = findViewById(R.id.recycleDiet);
         recycleDiet.setHasFixedSize(true);
         recycleDiet.setLayoutManager(new LinearLayoutManager(this));
-        Model[] model = new Model[]{
-                new Model("Breakfast","200","Chapati","Potato Curry",R.drawable.breakfast),
-                new Model("Lunch","250","Rice","Salad",R.drawable.lunch),
-                new Model("Dinner","150","Chicken","Salad",R.drawable.dinner),
+        Dietmodel[] model = new Dietmodel[]{
+                new Dietmodel("Breakfast","200","Chapati","Potato Curry",R.drawable.breakfast),
+                new Dietmodel("Lunch","250","Rice","Salad",R.drawable.lunch),
+                new Dietmodel("Dinner","150","Chicken","Salad",R.drawable.dinner),
         };
         Adapterdiet adapterdiet = new Adapterdiet(model,Dietchart.this);
         recycleDiet.setAdapter(adapterdiet);

@@ -1,7 +1,9 @@
 package com.example.aidietician;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -10,10 +12,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SettingsFragment#newInstance} factory method to
+ * Use the {@link FitnessFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SettingsFragment extends Fragment {
+public class FitnessFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,11 @@ public class SettingsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public SettingsFragment() {
+    private CardView cardFitness;
+    private CardView cardExercise;
+    private CardView cardFitnessPlan;
+
+    public FitnessFragment() {
         // Required empty public constructor
     }
 
@@ -37,8 +43,8 @@ public class SettingsFragment extends Fragment {
      * @return A new instance of fragment SettingsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SettingsFragment newInstance(String param1, String param2) {
-        SettingsFragment fragment = new SettingsFragment();
+    public static FitnessFragment newInstance(String param1, String param2) {
+        FitnessFragment fragment = new FitnessFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +65,26 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fitness, container, false);
+        View view = inflater.inflate(R.layout.fragment_fitness, container, false);
+
+        cardExercise = view.findViewById(R.id.cardExercise);
+        cardExercise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(getActivity(),Exercisechart.class);
+                startActivity(intent1);
+            }
+        });
+
+        cardFitness = view.findViewById(R.id.cardFitness);
+        cardFitness.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(getActivity(),Fitnesstracker.class);
+                startActivity(intent2);
+            }
+        });
+
+        return view;
     }
 }

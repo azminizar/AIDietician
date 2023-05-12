@@ -10,15 +10,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Adapterdiet extends RecyclerView.Adapter<Adapterdiet.ViewHolder> {
 
-    Model[] model;
+    Dietmodel[] model;
     Context c;
 
-    public Adapterdiet(Model[] model,Dietchart dietchart){
+    public Adapterdiet(Dietmodel[] model, Dietchart dietchart){
         this.model = model;
         this.c = dietchart;
     }
@@ -34,7 +31,7 @@ public class Adapterdiet extends RecyclerView.Adapter<Adapterdiet.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Model modellist = model[position];
+        final Dietmodel modellist = model[position];
         holder.meal.setText(modellist.getMeal());
         holder.calorie.setText(modellist.getCalorie());
         holder.item1.setText(modellist.getItem1());

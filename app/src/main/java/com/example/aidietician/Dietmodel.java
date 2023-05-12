@@ -1,10 +1,10 @@
 package com.example.aidietician;
 
-public class Model {
+public class Dietmodel {
     private String meal,item1,item2,calorie;
     private int img;
 
-    public Model(String meal, String calorie,String item1, String item2, int img){
+    public Dietmodel(String meal, String calorie, String item1, String item2, int img){
         this.meal = meal;
         this.calorie = calorie;
         this.item1 = item1;

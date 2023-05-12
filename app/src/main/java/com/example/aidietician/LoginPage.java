@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,6 +32,8 @@ public class LoginPage extends AppCompatActivity {
     EditText editTextEmail,editTextPassword;
     ActivityMainBinding binding;
     Button loginBtn;
+    CheckBox showPassword;
+
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +43,7 @@ public class LoginPage extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         loginBtn=findViewById(R.id.buttonLogin);
+        showPassword = findViewById(R.id.showPassword);
         //requestWindowFeature(Window.FEATURE_NO_TITLE)
         //getSupportActionBar().hide();
 
@@ -57,12 +65,12 @@ public class LoginPage extends AppCompatActivity {
                     return;
 
                 }
+
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-
                                     Intent intent = new Intent(getApplicationContext(),Homepage.class);
                                     startActivity(intent);
                                     finish();
@@ -71,12 +79,24 @@ public class LoginPage extends AppCompatActivity {
                                 } else {
                                     // If sign in fails, display a message to the user.
 
-                                    Toast.makeText(LoginPage.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginPage.this, "Incorrect Username or Password", Toast.LENGTH_SHORT).show();
 
                                 }
                             }
                         });
 
+            }
+        });
+
+        showPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    editTextPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else {
+                    editTextPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
             }
         });
     }
@@ -86,6 +106,15 @@ public class LoginPage extends AppCompatActivity {
         finish();
     }
 
-
+    protected void onStart() {
+        super.onStart();
+        if(mAuth.getCurrentUser() != null){
+            startActivity(new Intent(LoginPage.this,Homepage.class));
+            finish();
+        }
+//        else {
+//            startActivity(new Intent(this,LoginPage.class));
+//        }
+    }
 
 }

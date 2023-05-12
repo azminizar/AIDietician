@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.ClipData;
 import android.os.Bundle;
 
 import com.example.aidietician.databinding.ActivityHomepage2Binding;
@@ -33,7 +32,7 @@ public class Homepage2 extends AppCompatActivity {
                     replaceFragment(new DietFragment());
                     break;
                 case R.id.menuFitness:
-                    replaceFragment(new SettingsFragment());
+                    replaceFragment(new FitnessFragment());
                     break;
                 case R.id.menuAccount:
                     replaceFragment(new ProfileFragment());
