@@ -105,6 +105,8 @@ public class LoginPage extends AppCompatActivity {
     public void onSignupClick(View v1){
         startActivity(new Intent(this,Signup.class));
         finish();
+        Intent serviceInt = new Intent(this,StepCounter.class);
+        startService(serviceInt);
     }
 
     protected void onStart() {
@@ -112,6 +114,8 @@ public class LoginPage extends AppCompatActivity {
         if(mAuth.getCurrentUser() != null){
             startActivity(new Intent(LoginPage.this,Homepage.class));
             finish();
+            Intent serviceInt = new Intent(this,StepCounter.class);
+            startService(serviceInt);
         }
     }
 

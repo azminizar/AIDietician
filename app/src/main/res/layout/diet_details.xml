@@ -24,8 +24,8 @@
 
                 <ImageView
                     android:id="@+id/breakfast"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     app:srcCompat="@drawable/breakfast"
                     android:layout_margin="10dp"
                     android:layout_gravity="center"/>

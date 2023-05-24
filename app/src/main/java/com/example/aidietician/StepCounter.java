@@ -46,9 +46,9 @@ public class StepCounter extends Service implements SensorEventListener {
     }
 
     public int onStartCommand(Intent intent, int flags, int startId){
-        if(stepSensor != null){
-            sensorManager.registerListener(this,stepSensor,SensorManager.SENSOR_DELAY_NORMAL);
-        }
+       if(stepSensor != null){
+           sensorManager.registerListener(this,stepSensor,SensorManager.SENSOR_DELAY_NORMAL);
+       }
 
         handler.postDelayed(resetStepCountRunnable, getMillisToNextDay());
         return START_STICKY;
@@ -66,7 +66,7 @@ public class StepCounter extends Service implements SensorEventListener {
 
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+          return null;
     }
 
     @Override

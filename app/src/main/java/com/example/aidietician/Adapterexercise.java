@@ -10,20 +10,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class Adapterexercise extends RecyclerView.Adapter<Adapterexercise.ViewHolder> {
 
-    Exercisemodel[] emodel;
     Context context;
+    ArrayList<Exercisemodel> exercisemodels;
 
-    public Adapterexercise(Exercisemodel[] emodel, Exercisechart echart){
-        this.emodel = emodel;
-        this.context = echart;
+    public Adapterexercise(Context context, ArrayList<Exercisemodel> exercisemodels){
+        this.context = context;
+        this.exercisemodels = exercisemodels;
     }
 
     @NonNull
     @Override
     public Adapterexercise.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        LayoutInflater layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.exercise_details,parent,false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
@@ -31,28 +33,25 @@ public class Adapterexercise extends RecyclerView.Adapter<Adapterexercise.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull Adapterexercise.ViewHolder holder, int position) {
-        final Exercisemodel exercisemodel = emodel[position];
-        holder.exerciseName.setText(exercisemodel.getExerciseName());
-        holder.exerciseDesc.setText(exercisemodel.getExerciseDesc());
-        holder.caloriesBurned.setText(exercisemodel.getCaloriesBurned());
-        holder.image.setImageResource(exercisemodel.getImg());
+        holder.exerciseName.setText(exercisemodels.get(position).getExerciseName());
+        holder.caloriesBurned.setText(exercisemodels.get(position).getCaloriesBurned());
+        holder.image.setImageResource(exercisemodels.get(position).getImg());
     }
 
     @Override
     public int getItemCount() {
-        return emodel.length;
+        return exercisemodels.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView image;
-        TextView exerciseName,exerciseDesc,caloriesBurned;
+        TextView exerciseName,caloriesBurned;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.image = itemView.findViewById(R.id.plank);
             this.exerciseName = itemView.findViewById(R.id.exerciseName);
-            this.exerciseDesc = itemView.findViewById(R.id.exerciseDesc);
             this.caloriesBurned = itemView.findViewById(R.id.calorieBurned);
         }
     }

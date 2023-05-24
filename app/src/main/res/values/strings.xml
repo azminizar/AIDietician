@@ -39,6 +39,18 @@
         <item>Maintain Weight</item>
         <item>Gain Weight</item>
     </string-array>
-    <string name="title_activity_diet_history">DietHistory</string>
-    <string name="title_activity_fitness_tracker">FitnessTracker</string>
+    <string-array name="Exercise_Name">
+        <item>Plank</item>
+        <item>Squat</item>
+        <item>Crunches</item>
+        <item>Lunges</item>
+        <item>Push-Ups</item>
+    </string-array>
+    <string-array name="Calories_Burned">
+        <item>100</item>
+        <item>200</item>
+        <item>150</item>
+        <item>300</item>
+        <item>200</item>
+    </string-array>
 </resources>

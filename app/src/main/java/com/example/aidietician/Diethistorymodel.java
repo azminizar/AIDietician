@@ -3,13 +3,14 @@ package com.example.aidietician;
 import android.widget.TextView;
 
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Diethistorymodel {
 
     String date,time,meal,calorie;
 
-    public Diethistorymodel(String date, String time, String meal, String calorie) {
+    public Diethistorymodel(String date,String time, String meal, String calorie) {
         this.date = date;
         this.time = time;
         this.meal = meal;
@@ -48,4 +49,3 @@ public class Diethistorymodel {
         this.calorie = calorie;
     }
 }
-

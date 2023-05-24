@@ -1,12 +1,11 @@
 package com.example.aidietician;
 
 public class Exercisemodel {
-    private String exerciseName,exerciseDesc,caloriesBurned;
+    private String exerciseName,caloriesBurned;
     private int img;
 
-    public Exercisemodel(String exerciseName,String exerciseDesc,String caloriesBurned,int img){
+    public Exercisemodel(String exerciseName,String caloriesBurned,int img){
         this.exerciseName = exerciseName;
-        this.exerciseDesc = exerciseDesc;
         this.caloriesBurned = caloriesBurned;
         this.img = img;
     }
@@ -17,14 +16,6 @@ public class Exercisemodel {
 
     public void setExerciseName(String exerciseName) {
         this.exerciseName = exerciseName;
-    }
-
-    public String getExerciseDesc() {
-        return exerciseDesc;
-    }
-
-    public void setExerciseDesc(String exerciseDesc) {
-        this.exerciseDesc = exerciseDesc;
     }
 
     public String getCaloriesBurned() {

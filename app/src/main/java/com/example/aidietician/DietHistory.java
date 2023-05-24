@@ -43,8 +43,6 @@ public class DietHistory extends AppCompatActivity {
         recycleDietHistory.setLayoutManager(new LinearLayoutManager(this));
 
         diethistorymodels = new ArrayList<>();
-        adapter = new Adapterdiethistory(this,diethistorymodels);
-        recycleDietHistory.setAdapter(adapter);
         df.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -59,7 +57,8 @@ public class DietHistory extends AppCompatActivity {
                 }
             }
         });
-
+        adapter = new Adapterdiethistory(this,diethistorymodels);
+        recycleDietHistory.setAdapter(adapter);
 
     }
 }
