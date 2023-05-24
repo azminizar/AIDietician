@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,7 +24,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 
 public class LoginPage extends AppCompatActivity {
 
@@ -42,6 +41,7 @@ public class LoginPage extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
+
         loginBtn=findViewById(R.id.buttonLogin);
         showPassword = findViewById(R.id.showPassword);
         //requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -71,7 +71,8 @@ public class LoginPage extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Intent intent = new Intent(getApplicationContext(),Homepage.class);
+
+                                    Intent intent = new Intent(LoginPage.this,Homepage.class);
                                     startActivity(intent);
                                     finish();
                                     Toast.makeText(LoginPage.this, "Login Successful.", Toast.LENGTH_SHORT).show();
@@ -79,7 +80,7 @@ public class LoginPage extends AppCompatActivity {
                                 } else {
                                     // If sign in fails, display a message to the user.
 
-                                    Toast.makeText(LoginPage.this, "Incorrect Username or Password", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginPage.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
 
                                 }
                             }
@@ -112,9 +113,8 @@ public class LoginPage extends AppCompatActivity {
             startActivity(new Intent(LoginPage.this,Homepage.class));
             finish();
         }
-//        else {
-//            startActivity(new Intent(this,LoginPage.class));
-//        }
     }
+
+
 
 }

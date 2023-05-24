@@ -9,6 +9,8 @@ import android.os.Bundle;
 
 import com.example.aidietician.databinding.ActivityHomepage2Binding;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.FirebaseMessagingService;
 
 public class Homepage extends AppCompatActivity {
 
@@ -20,6 +22,7 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomepage2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         replaceFragment(new HomeFragment());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {

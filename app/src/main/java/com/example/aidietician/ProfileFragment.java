@@ -3,8 +3,10 @@ package com.example.aidietician;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -12,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.aidietician.databinding.FragmentProfileBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.ktx.Firebase;
 
@@ -31,9 +34,8 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    CardView logout;
-
     FirebaseAuth mAuth;
+    CardView logout;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -69,6 +71,16 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        @NonNull FragmentProfileBinding binding = FragmentProfileBinding.inflate(getLayoutInflater());
+
+        binding.cardLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+
+            }
+        });
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
@@ -91,4 +103,6 @@ public class ProfileFragment extends Fragment {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
+
+
 }

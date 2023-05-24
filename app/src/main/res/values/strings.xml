@@ -39,4 +39,6 @@
         <item>Maintain Weight</item>
         <item>Gain Weight</item>
     </string-array>
+    <string name="title_activity_diet_history">DietHistory</string>
+    <string name="title_activity_fitness_tracker">FitnessTracker</string>
 </resources>
