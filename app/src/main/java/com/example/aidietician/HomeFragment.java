@@ -1,26 +1,41 @@
 package com.example.aidietician;
 
+import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+import com.google.firestore.v1.Document;
 import com.google.firestore.v1.FirestoreGrpc;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,10 +52,12 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private TextView nameView,dietView,activityView,waterView,weightView,sleepView,bmiView;
+    private TextView nameView, dietView, activityView, waterView, weightView, sleepView, bmiView;
+    Dialog dialog;
 
     FirebaseFirestore fstore;
     FirebaseAuth mAuth;
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -81,10 +98,31 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         String userID;
 
-        mAuth=FirebaseAuth.getInstance();
-        fstore=FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        fstore = FirebaseFirestore.getInstance();
 
-        userID=mAuth.getCurrentUser().getUid();
+        CardView cardViewWater = v.findViewById(R.id.cardViewWater);
+        waterView = v.findViewById(R.id.waterText);
+        sleepView = v.findViewById(R.id.sleepText);
+
+        dialog = new Dialog(getContext());
+
+        cardViewWater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialogWater();
+            }
+        });
+
+//        CardView cardViewSleep = v.findViewById(R.id.cardViewSleep);
+//        cardViewSleep.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openDialogSleep();
+//            }
+//        });
+
+        userID = mAuth.getCurrentUser().getUid();
         DocumentReference df = fstore.collection("home").document(userID);
 
         df.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -96,28 +134,28 @@ public class HomeFragment extends Fragment {
 
                         Log.d("TAG", "DocumentSnapshot data: " + document.getData());
                         Map<String, Object> map = document.getData();
-                        dietView=v.findViewById(R.id.calText);
-                        activityView=v.findViewById(R.id.actText);
-                        waterView=v.findViewById(R.id.waterText);
-                        weightView=v.findViewById(R.id.weightText);
-                        bmiView=v.findViewById(R.id.bmiText);
-                        sleepView=v.findViewById(R.id.sleepText);
-                        nameView=v.findViewById(R.id.txtViewUser);
+                        dietView = v.findViewById(R.id.calText);
+                        activityView = v.findViewById(R.id.actText);
+                        waterView = v.findViewById(R.id.waterText);
+                        weightView = v.findViewById(R.id.weightText);
+                        bmiView = v.findViewById(R.id.bmiText);
+                        sleepView = v.findViewById(R.id.sleepText);
+                        nameView = v.findViewById(R.id.txtViewUser);
                         if (map != null) {
-                            String cal=String.valueOf(map.get("cal_intake"));
+                            String cal = String.valueOf(map.get("cal_intake"));
                             dietView.setText(cal);
                             String sleep = String.valueOf(map.get("sleep"));
                             sleepView.setText(sleep);
-                            String activity =String.valueOf(map.get("activity"));
+                            String activity = String.valueOf(map.get("activity"));
                             activityView.setText(activity);
-                            String bmi=String.valueOf(map.get("bmi"));
+                            String bmi = String.valueOf(map.get("bmi"));
                             bmiView.setText(bmi);
-                            String weight=String.valueOf(map.get("weight"));
+                            String weight = String.valueOf(map.get("weight"));
                             weightView.setText(weight);
                             String water = String.valueOf(map.get("water"));
                             waterView.setText(water);
-                            String name= String.valueOf(map.get("fname"));
-                            nameView.setText("Hey "+name+" ...");
+                            String name = String.valueOf(map.get("fname"));
+                            nameView.setText("Hey " + name + " ...");
                         }
                     } else {
                         Log.d("TAG", "No such document");
@@ -127,11 +165,98 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
-
-
-
-
-
         return v;
+    }
+
+//    private void openDialogSleep() {
+//        EditText sleeptext, waketext;
+//        Button btnOk;
+//
+//        String userID = mAuth.getCurrentUser().getUid();
+//        DocumentReference df = fstore.collection("home").document(userID);
+//
+//        dialog.setContentView(R.layout.sleep_dialogue);
+//        sleeptext = dialog.findViewById(R.id.sleepText);
+//        waketext = dialog.findViewById(R.id.waterText);
+//
+//        String startTimeString = sleeptext.getText().toString();
+//        String finishTimeString = waketext.getText().toString();
+//        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+//
+//        try {
+//            Date startTime = format.parse(startTimeString);
+//            Date finishTime = format.parse(finishTimeString);
+//
+//            long durationInMillis = finishTime.getTime() - startTime.getTime();
+//            long durationInMinutes = TimeUnit.MILLISECONDS.toMinutes(durationInMillis);
+//            long durationInHours = TimeUnit.MINUTES.toHours(durationInMinutes);
+//
+//            // Do something with the duration, e.g., display it in a TextView
+//            // textView.setText("Duration: " + durationInMinutes + " minutes");
+//            sleepView.setText(String.valueOf(durationInHours));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        dialog.show();
+//    }
+
+    private void openDialogWater() {
+        TextView textViewWater, textViewPlus, textViewMinus;
+        Button buttonOk;
+        String userID = mAuth.getCurrentUser().getUid();
+        DocumentReference df = fstore.collection("home").document(userID);
+
+        dialog.setContentView(R.layout.water_dialog);
+        textViewWater = dialog.findViewById(R.id.editTextWater);
+        textViewPlus = dialog.findViewById(R.id.textViewPlus);
+        textViewMinus = dialog.findViewById(R.id.textViewMinus);
+        buttonOk = dialog.findViewById(R.id.buttonOk);
+        df.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Map<String, Object> data = document.getData();
+                        textViewWater.setText(data.get("water").toString());
+                    }
+                }
+            }
+        });
+
+        textViewPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String currentVal = textViewWater.getText().toString();
+                int value = Integer.parseInt(currentVal);
+                value++;
+                textViewWater.setText(String.valueOf(value));
+            }
+        });
+
+        textViewMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String currentVal = textViewWater.getText().toString();
+                int value = Integer.parseInt(currentVal);
+                value--;
+                textViewWater.setText(String.valueOf(value));
+            }
+        });
+
+        buttonOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                waterView.setText(textViewWater.getText().toString());
+                String userID = mAuth.getCurrentUser().getUid();
+
+                Map<String, Object> map = new HashMap<>();
+                map.put("water", textViewWater.getText().toString());
+                DocumentReference df = fstore.collection("home").document(userID);
+                df.set(map, SetOptions.merge());
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 }

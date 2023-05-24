@@ -3,12 +3,24 @@ package com.example.aidietician;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +41,13 @@ public class FitnessFragment extends Fragment {
     private CardView cardFitness;
     private CardView cardExercise;
     private CardView cardFitnessPlan;
+
+    private TextView textViewCal,textViewStep,textViewActivity;
+    int calCount,activity;
+
+    String userID;
+    FirebaseFirestore fstore = FirebaseFirestore.getInstance();
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     public FitnessFragment() {
         // Required empty public constructor
@@ -82,6 +101,40 @@ public class FitnessFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent2 = new Intent(getActivity(),Fitnesstracker.class);
                 startActivity(intent2);
+            }
+        });
+
+        textViewCal = view.findViewById(R.id.textViewCal);
+        textViewStep = view.findViewById(R.id.textViewStepCount);
+        textViewActivity = view.findViewById(R.id.textViewActivityCount);
+
+        userID=mAuth.getCurrentUser().getUid();
+        DocumentReference df = fstore.collection("home").document(userID);
+        DocumentReference df2 = fstore.collection("activity").document(userID);
+
+        df.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()){
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Map<String, Object> map = document.getData();
+                        textViewActivity.setText(map.get("activity").toString());
+                    }
+                }
+            }
+        });
+
+        df2.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()){
+                    DocumentSnapshot snapshot = task.getResult();
+                    if(snapshot.exists()){
+                        Map<String, Object> object = snapshot.getData();
+                        textViewStep.setText(object.get("steps").toString());
+                    }
+                }
             }
         });
 

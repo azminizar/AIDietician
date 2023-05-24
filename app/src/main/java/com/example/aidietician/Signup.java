@@ -140,7 +140,7 @@ public class Signup extends AppCompatActivity {
                                     DocumentReference documentReference= f.collection( "users" ).document(userID);
                                     DocumentReference documentReference1= f.collection( "home" ).document(userID);
                                     DocumentReference documentReference2= f.collection( "diet" ).document(userID);
-                                    DocumentReference documentReference3= f.collection( "diseases" ).document(userID);
+                                    DocumentReference documentReference3= f.collection( "recommendation" ).document(userID);
                                     DocumentReference documentReference4= f.collection( "activity" ).document(userID);
 
 
@@ -166,9 +166,20 @@ public class Signup extends AppCompatActivity {
                                     activity.put("date","0");
                                     activity.put("cal_burned","0");
                                     activity.put("act_time","0");
+                                    activity.put("steps","0");
+
+                                    Map<String,Object> recoms=new HashMap<>();
+                                    recoms.put("breakfast","uttapam");
+                                    recoms.put("lunch","rice");
+                                    recoms.put("dinner","Almonds");
+                                    recoms.put("bf_cal","200");
+                                    recoms.put("lun_cal","600");
+                                    recoms.put("din_cal","600");
                                     documentReference1.set(home);
                                     documentReference2.set(diet);
+                                    documentReference3.set(recoms);
                                     documentReference4.set(activity);
+
 
                                     documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override

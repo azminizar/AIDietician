@@ -24,194 +24,303 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:fontFamily="@font/poppins"
-                android:textSize="15dp"
+                android:textSize="20dp"
                 android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="10dp">
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
-            <androidx.cardview.widget.CardView
+            <TextView
+                android:id="@+id/tv_Calorie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="70dp"
-                android:layout_gravity="fill"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="5dp">
+                android:fontFamily="@font/poppins"
+                android:text="Calorie Burned"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/circularProgressCalorie"
+                android:layout_marginTop="10dp"/>
 
-                <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="175dp"
-                    android:background="@drawable/bg_lightblue"
-                    android:orientation="vertical">
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/circularProgressCalorie"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:progress="5000"
+                android:max="8000"
+                app:indicatorColor="#ED3636"
+                app:indicatorSize="170dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:trackColor="#FBE0E0"
+                app:trackCornerRadius="8dp"
+                app:trackThickness="15dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Calorie"
-                        android:textColor="@color/black"
-                        android:textSize="12dp"
-                        android:fontFamily="@font/poppins"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/textViewCal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="100"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                app:layout_constraintBottom_toBottomOf="@+id/circularProgressCalorie"
+                app:layout_constraintEnd_toEndOf="@+id/circularProgressCalorie"
+                app:layout_constraintHorizontal_bias="0.488"
+                app:layout_constraintStart_toStartOf="@+id/circularProgressCalorie"
+                app:layout_constraintTop_toTopOf="@+id/circularProgressCalorie"
+                app:layout_constraintVertical_bias="0.477" />
 
-                </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Cal"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/circularProgressCalorie"
+                app:layout_constraintEnd_toEndOf="@+id/circularProgressCalorie"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="@+id/circularProgressCalorie"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCal"
+                app:layout_constraintVertical_bias="0.195" />
+
+            <TextView
+                android:id="@+id/textViewSteps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Steps"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/linearProgressSteps"
+                app:layout_constraintStart_toStartOf="@+id/linearProgressSteps"
+                app:layout_constraintTop_toBottomOf="@+id/linearProgressSteps" />
+
+            <TextView
+                android:id="@+id/textViewActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="Activity"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/linearProgressActivity"
+                app:layout_constraintStart_toStartOf="@+id/linearProgressActivity"
+                app:layout_constraintTop_toBottomOf="@+id/linearProgressActivity" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/linearProgressSteps"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:progress="15"
+                app:indicatorColor="#0E89F9"
+                app:indicatorSize="125dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Calorie"
+                app:trackColor="#E9F4FF"
+                app:trackCornerRadius="8dp"
+                app:trackThickness="10dp" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/linearProgressActivity"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:progress="15"
+                app:indicatorColor="#0E89F9"
+                app:indicatorSize="125dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.68"
+                app:layout_constraintStart_toEndOf="@+id/linearProgressSteps"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Calorie"
+                app:trackColor="#E9F4FF"
+                app:trackCornerRadius="8dp"
+                app:trackThickness="10dp" />
+
+            <TextView
+                android:id="@+id/textViewStepCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="1000"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/linearProgressSteps"
+                app:layout_constraintEnd_toEndOf="@+id/linearProgressSteps"
+                app:layout_constraintHorizontal_bias="0.456"
+                app:layout_constraintStart_toStartOf="@+id/linearProgressSteps"
+                app:layout_constraintTop_toTopOf="@+id/linearProgressSteps"
+                app:layout_constraintVertical_bias="0.44" />
+
+            <TextView
+                android:id="@+id/textViewStep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Steps"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/linearProgressSteps"
+                app:layout_constraintStart_toStartOf="@+id/linearProgressSteps"
+                app:layout_constraintTop_toBottomOf="@+id/textViewStepCount" />
+
+            <TextView
+                android:id="@+id/textViewActivityCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="30 "
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/linearProgressActivity"
+                app:layout_constraintEnd_toEndOf="@+id/linearProgressActivity"
+                app:layout_constraintStart_toStartOf="@+id/linearProgressActivity"
+                app:layout_constraintTop_toTopOf="@+id/linearProgressActivity"
+                app:layout_constraintVertical_bias="0.435" />
+
+            <TextView
+                android:id="@+id/textViewMins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Mins"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/linearProgressActivity"
+                app:layout_constraintStart_toStartOf="@+id/linearProgressActivity"
+                app:layout_constraintTop_toBottomOf="@+id/textViewActivityCount" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardFitness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_gravity="fill"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:orientation="vertical"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp">
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="@drawable/bg_lightgreen"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/fitness_tracker"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="20dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Steps :"
-                    android:textColor="@color/black"/>
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Activity time :"
+                    android:text="Fitness tracker"
                     android:textColor="@color/black"
-                    android:layout_marginTop="20dp"/>
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="37dp"/>
 
             </LinearLayout>
 
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardFitness"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_gravity="fill"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_gravity="fill"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp">
+                android:layout_height="90dp"
+                android:background="@drawable/bg_lightgreen"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="90dp"
-                    android:background="@drawable/bg_lightgreen"
-                    android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/exercises"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="20dp"/>
 
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:src="@drawable/fitness_tracker"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="20dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fitness tracker"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/poppins"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginTop="37dp"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardExercise"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_gravity="fill"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="90dp"
-                    android:background="@drawable/bg_lightgreen"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/exercises"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginStart="20dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Exercise"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/poppins"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="37dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exercise"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="37dp"/>
 
 
-                </LinearLayout>
+            </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardFitnessPlan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="10dp"
-                android:layout_gravity="fill"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp">
+        <!--            <androidx.cardview.widget.CardView-->
+        <!--                android:id="@+id/cardFitnessPlan"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="30dp"-->
+        <!--                android:layout_marginStart="32dp"-->
+        <!--                android:layout_marginEnd="32dp"-->
+        <!--                android:layout_marginBottom="10dp"-->
+        <!--                android:layout_gravity="fill"-->
+        <!--                app:cardCornerRadius="8dp"-->
+        <!--                app:cardElevation="2dp">-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="90dp"
-                    android:background="@drawable/bg_lightgreen"
-                    android:orientation="horizontal">
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="90dp"-->
+        <!--                    android:background="@drawable/bg_lightgreen"-->
+        <!--                    android:orientation="horizontal">-->
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/fitness_plan"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginStart="20dp"/>
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="40dp"-->
+        <!--                        android:layout_height="40dp"-->
+        <!--                        android:src="@drawable/fitness_plan"-->
+        <!--                        android:layout_marginTop="20dp"-->
+        <!--                        android:layout_marginStart="20dp"/>-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Current fitness plan"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/poppins"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="37dp"/>
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="Current fitness plan"-->
+        <!--                        android:textColor="@color/black"-->
+        <!--                        android:textStyle="bold"-->
+        <!--                        android:fontFamily="@font/poppins"-->
+        <!--                        android:layout_marginStart="15dp"-->
+        <!--                        android:layout_marginTop="37dp"/>-->
 
 
-                </LinearLayout>
+        <!--                </LinearLayout>-->
 
-            </androidx.cardview.widget.CardView>
+        <!--            </androidx.cardview.widget.CardView>-->
 
     </LinearLayout>
 </ScrollView>
