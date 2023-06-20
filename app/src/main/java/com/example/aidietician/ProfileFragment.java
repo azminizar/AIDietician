@@ -35,7 +35,7 @@ public class ProfileFragment extends Fragment {
     private String mParam2;
 
     FirebaseAuth mAuth;
-    CardView logout;
+    CardView logout,privacy,bodymeasure;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -86,6 +86,24 @@ public class ProfileFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
         logout = view.findViewById(R.id.cardLogout);
+        privacy = view.findViewById(R.id.cardPrivacy);
+        bodymeasure = view.findViewById(R.id.cardBodyMeasure);
+
+        privacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(getContext(),Privacy.class);
+                startActivity(intent1);
+            }
+        });
+
+        bodymeasure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(getContext(),BodyMeasure.class);
+                startActivity(intent2);
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
