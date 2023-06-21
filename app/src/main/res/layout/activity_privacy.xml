@@ -42,7 +42,11 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="45dp"
+<<<<<<< HEAD
                 android:src="@drawable/email"
+=======
+                android:src="@drawable/profile"
+>>>>>>> origin/master
                 android:layout_gravity="center"
                 android:layout_marginStart="20dp"/>
 

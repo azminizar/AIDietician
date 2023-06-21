@@ -148,9 +148,14 @@ public class Dietchart extends AppCompatActivity {
                     @Override
                     public RecoReceive then(@NonNull Task<HttpsCallableResult> task) throws Exception {
 
-                        HashMap<String,Object> result = (HashMap<String,Object> ) task.getResult().getData();
-                        return new RecoReceive((String)result.get("bf"),(String)result.get("lun"),(String)result.get("din"),(int)result.get("bfcal"),(int)result.get("luncal"),(int)result.get("dincal"));
-
+                        HashMap<String,Object> result = (HashMap <String,Object> ) task.getResult().getData();
+                        if(result!=null) {
+                            return new RecoReceive((String) result.get("bf"), (String) result.get("lun"), (String) result.get("din"), (int) result.get("bfcal"), (int) result.get("luncal"), (int) result.get("dincal"));
+                        }
+                        else
+                        {
+                            return null;
+                        }
                     }
                 });
     }
