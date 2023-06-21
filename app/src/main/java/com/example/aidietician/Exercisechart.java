@@ -7,32 +7,35 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import java.util.ArrayList;
+
 public class Exercisechart extends AppCompatActivity {
 
     RecyclerView recycleExercise;
+    ArrayList<Exercisemodel> exercise = new ArrayList<>();
 
-
+    int[] exerciseImages = {R.drawable.plank,R.drawable.squats,R.drawable.crunches,
+            R.drawable.lunges,R.drawable.pushup};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercisechart);
+        setUpExerciseModel();
+    }
 
+    private void setUpExerciseModel() {
         recycleExercise = findViewById(R.id.recycleExercise);
         recycleExercise.setHasFixedSize(true);
         recycleExercise.setLayoutManager(new LinearLayoutManager(this));
-        Exercisemodel[] emodel = new Exercisemodel[]{
-                new Exercisemodel("Plank","It is an exercise that is often used to target and strengthen the core muscles," +
-                        " including the abdominals, back, and hips.","170-200",R.drawable.plank),
-                new Exercisemodel("Squats","They are a popular exercise that are often used to target and strengthen the lower body muscles, " +
-                        "including the quadriceps, hamstrings, glutes, and calves.","300-350",R.drawable.squats),
-                new Exercisemodel("Crunches","They are a popular exercise that are often used to target and strengthen the abdominal muscles. "
-                        ,"150-200",R.drawable.crunches),
-                new Exercisemodel("Lunges","They are a popular exercise that are often used to target and strengthen the lower body muscles," +
-                        " including the quadriceps, hamstrings, glutes, and calves. ","350-400",R.drawable.lunges),
-                new Exercisemodel("Push-ups","They are a popular exercise that are often used to target and strengthen the upper body muscles," +
-                        " including the chest, shoulders, triceps, and core.","500-600",R.drawable.pushup),
-        };
-        Adapterexercise adapterexercise = new Adapterexercise(emodel,Exercisechart.this);
+        String [] execiseName = getResources().getStringArray(R.array.Exercise_Name);
+        String[] caloriesBurned = getResources().getStringArray(R.array.Calories_Burned);
+        for (int i = 0; i<execiseName.length; i++){
+            exercise.add(new Exercisemodel(execiseName[i],
+                    caloriesBurned[i],
+                    exerciseImages[i]));
+        }
+
+        Adapterexercise adapterexercise = new Adapterexercise(this,exercise);
         recycleExercise.setAdapter(adapterexercise);
     }
 }

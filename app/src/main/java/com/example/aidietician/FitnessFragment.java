@@ -19,7 +19,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -43,7 +45,7 @@ public class FitnessFragment extends Fragment {
     private CardView cardFitnessPlan;
 
     private TextView textViewCal,textViewStep,textViewActivity;
-    int calCount,activity;
+    int calCount,step;
 
     String userID;
     FirebaseFirestore fstore = FirebaseFirestore.getInstance();
@@ -120,6 +122,7 @@ public class FitnessFragment extends Fragment {
                     if (document.exists()) {
                         Map<String, Object> map = document.getData();
                         textViewActivity.setText(map.get("activity").toString());
+
                     }
                 }
             }
@@ -133,6 +136,12 @@ public class FitnessFragment extends Fragment {
                     if(snapshot.exists()){
                         Map<String, Object> object = snapshot.getData();
                         textViewStep.setText(object.get("steps").toString());
+                        step = Integer.parseInt(object.get("steps").toString());
+                        calCount = (int) (step*0.04);
+                        textViewCal.setText(String.valueOf(calCount));
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("cal_burned",String.valueOf(calCount));
+                        df2.set(map, SetOptions.merge());
                     }
                 }
             }

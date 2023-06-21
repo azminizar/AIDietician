@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:onClick="onClickMinus"
-            android:text="8"
+            android:text="0"
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -45,7 +45,7 @@ public class Adapterdiethistory extends RecyclerView.Adapter<Adapterdiethistory.
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Diethistorymodel model = list.get(position);
         holder.Date.setText(model.getDate());
-        holder.Meal.setText(model.getTime());
+        holder.Time.setText(model.getTime());
         holder.Meal.setText(model.getMeal());
         holder.Calorie.setText(model.getCalorie());
 
@@ -56,4 +56,3 @@ public class Adapterdiethistory extends RecyclerView.Adapter<Adapterdiethistory.
         return list.size();
     }
 }
-

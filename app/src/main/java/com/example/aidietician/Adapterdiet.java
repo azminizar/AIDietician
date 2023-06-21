@@ -4,58 +4,64 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class Adapterdiet extends RecyclerView.Adapter<Adapterdiet.ViewHolder> {
+import org.w3c.dom.Text;
 
-    Dietmodel[] model;
-    Context c;
+public class Adapterdiet extends BaseAdapter {
 
-    public Adapterdiet(Dietmodel[] model, Dietchart dietchart){
-        this.model = model;
-        this.c = dietchart;
-    }
+    Context context;
+    String[] meal,calorie,item1,item2;
+    int[] images;
+    LayoutInflater inflater;
 
-    @NonNull
-    @Override
-    public  ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.diet_details,parent,false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Dietmodel modellist = model[position];
-        holder.meal.setText(modellist.getMeal());
-        holder.calorie.setText(modellist.getCalorie());
-        holder.item1.setText(modellist.getItem1());
-        holder.item2.setText(modellist.getItem2());
-        holder.imageView.setImageResource(modellist.getImg());
+    public Adapterdiet(Context context, String[] meal,String [] calorie,String[] item1,
+                       String[] item2,int[] images){
+        this.context = context;
+        this.meal = meal;
+        this.calorie = calorie;
+        this.item1 = item1;
+        this.item2 = item2;
+        this.images = images;
+        inflater = LayoutInflater.from(context);
     }
 
     @Override
-    public int getItemCount() {
-        return model.length;
+    public int getCount() {
+        return meal.length;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-
-        ImageView imageView;
-        TextView meal,item1,item2,calorie;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            this.imageView = itemView.findViewById(R.id.breakfast);
-            this.meal = itemView.findViewById(R.id.meal);
-            this.calorie = itemView.findViewById(R.id.calorie);
-            this.item1 = itemView.findViewById(R.id.item1);
-            this.item2 = itemView.findViewById(R.id.item2);
-        }
+    @Override
+    public Object getItem(int position) {
+        return null;
     }
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        convertView = inflater.inflate(R.layout.diet_details,null);
+        TextView txtmeal = (TextView) convertView.findViewById(R.id.meal);
+        TextView txtcalorie = (TextView) convertView.findViewById(R.id.calorie);
+        TextView txtitem1 = (TextView) convertView.findViewById(R.id.item1);
+        TextView txtitem2 = (TextView) convertView.findViewById(R.id.item2);
+        ImageView mealimg = (ImageView) convertView.findViewById(R.id.breakfast);
+
+        txtmeal.setText(meal[position]);
+        txtcalorie.setText(calorie[position]);
+        txtitem1.setText(item1[position]);
+        txtitem2.setText(item2[position]);
+        mealimg.setImageResource(images[position]);
+        return convertView;
+    }
+
 }

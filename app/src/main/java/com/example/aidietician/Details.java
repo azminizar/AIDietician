@@ -212,7 +212,7 @@ public class Details extends AppCompatActivity {
         return age;
     }
 
-                public double calculateBMR(String gender, int weight, int height, int age) {
+    public double calculateBMR(String gender, int weight, int height, int age) {
         double bmr;
 
         if (gender.equalsIgnoreCase("male")) {

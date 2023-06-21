@@ -119,6 +119,7 @@ public class DietFragment extends Fragment {
         return fragment;
     }
 
+
     public void buildMealList() {
 
         fstore=FirebaseFirestore.getInstance();
@@ -140,7 +141,6 @@ public class DietFragment extends Fragment {
         });
 
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
