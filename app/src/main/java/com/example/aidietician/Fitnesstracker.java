@@ -15,6 +15,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -34,33 +35,40 @@ public class Fitnesstracker extends AppCompatActivity implements SensorEventList
     private static final int PERMISSION_REQUEST_ACTIVITY_RECOGNITION = 1;
 
     private SensorManager sensorManager;
-    private Sensor mStepCounter;
-    private TextView progress_text;
+    private Sensor stepCounterSensor;
+    private TextView progressText;
     private boolean running = false;
     private int stepCount = 0;
     private int activity;
 
-    FirebaseFirestore fstore = FirebaseFirestore.getInstance();
-    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private FirebaseFirestore fstore;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fitnesstracker);
 
-        progress_text = findViewById(R.id.progress_text);
+        progressText = findViewById(R.id.progress_text);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        fstore = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION)
-                != PackageManager.PERMISSION_GRANTED) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION)
+                    != PackageManager.PERMISSION_GRANTED) {
 
-            // Permission is not granted, request it
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACTIVITY_RECOGNITION},
-                    PERMISSION_REQUEST_ACTIVITY_RECOGNITION);
+                // Permission is not granted, request it
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.ACTIVITY_RECOGNITION},
+                        PERMISSION_REQUEST_ACTIVITY_RECOGNITION);
+            } else {
+                // Permission is already granted, start listening for step counter sensor events
+                registerStepCounterListener();
+            }
         } else {
-            // Permission is already granted, start listening for step counter sensor events
+            // Permission is automatically granted for earlier versions
             registerStepCounterListener();
         }
     }
@@ -80,7 +88,7 @@ public class Fitnesstracker extends AppCompatActivity implements SensorEventList
 
     private void registerStepCounterListener() {
         if (sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null) {
-            mStepCounter = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+            stepCounterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
             running = true;
             Toast.makeText(this, "Sensor Found", Toast.LENGTH_SHORT).show();
         } else {
@@ -91,15 +99,15 @@ public class Fitnesstracker extends AppCompatActivity implements SensorEventList
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (event.sensor == mStepCounter) {
+        if (event.sensor == stepCounterSensor) {
             stepCount = (int) event.values[0];
-            progress_text.setText(String.valueOf(stepCount));
+            progressText.setText(String.valueOf(stepCount));
             activity = (int) ((int) stepCount * 0.01);
             String userID = mAuth.getCurrentUser().getUid();
             Map<String, Object> map = new HashMap<>();
             Map<String, Object> map2 = new HashMap<>();
-            map.put("activity",String.valueOf(activity));
-            map2.put("steps",String.valueOf(stepCount));
+            map.put("activity", String.valueOf(activity));
+            map2.put("steps", String.valueOf(stepCount));
             DocumentReference df = fstore.collection("home").document(userID);
             DocumentReference df2 = fstore.collection("activity").document(userID);
             df.set(map, SetOptions.merge());
@@ -109,21 +117,16 @@ public class Fitnesstracker extends AppCompatActivity implements SensorEventList
     }
 
     @Override
-    public void onAccuracyChanged(Sensor sensor, int i) {
-
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        // Do nothing for now
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION)
-                == PackageManager.PERMISSION_GRANTED) {
-
-            Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-            if (countSensor != null) {
-                sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_NORMAL);
-            }
+        if (sensorManager != null && stepCounterSensor != null) {
+            sensorManager.registerListener(this, stepCounterSensor, SensorManager.SENSOR_DELAY_NORMAL);
         }
     }
 
@@ -131,13 +134,8 @@ public class Fitnesstracker extends AppCompatActivity implements SensorEventList
     protected void onPause() {
         super.onPause();
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION)
-                == PackageManager.PERMISSION_GRANTED) {
-
-            Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-            if (countSensor != null) {
-                sensorManager.unregisterListener(this, mStepCounter);
-            }
+        if (sensorManager != null && stepCounterSensor != null) {
+            sensorManager.unregisterListener(this, stepCounterSensor);
         }
     }
 }
