@@ -29,7 +29,11 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -38,6 +42,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.functions.FirebaseFunctions;
+import com.google.firebase.functions.HttpsCallableResult;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -72,13 +78,15 @@ public class DietFragment extends Fragment {
     private TextView targetCal,maxIntake;
 
     private Button addMeal;
-
+    private Button askDietician;
+    private EditText reqQuery;
     private ArrayList<String> arrayList;
     private Dialog dialog;
-
+    private TextView botReply;
 
     FirebaseFirestore fstore;
     FirebaseAuth mAuth;
+    private FirebaseFunctions mFunctions;
 
     public DietFragment() {
         // Required empty public constructor
@@ -141,7 +149,7 @@ public class DietFragment extends Fragment {
         fstore=FirebaseFirestore.getInstance();
         mAuth=FirebaseAuth.getInstance();
         String userID=mAuth.getCurrentUser().getUid();
-
+        mFunctions = FirebaseFunctions.getInstance();
 
 
 
@@ -169,6 +177,11 @@ public class DietFragment extends Fragment {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 currentCal.setText("Current Calorie intake: "+documentSnapshot.get("cal_intake").toString());
             }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
         });
         recomRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -186,6 +199,11 @@ public class DietFragment extends Fragment {
                     recoFood.setText(documentSnapshot.get("dinner").toString());
                     targetCal.setText("Calories: "+documentSnapshot.get("din_cal").toString());
                 }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
             }
         });
 
@@ -242,6 +260,7 @@ public class DietFragment extends Fragment {
         });
 
         addMeal = view.findViewById(R.id.btnAddMeal);
+
         addMeal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -292,8 +311,7 @@ public class DietFragment extends Fragment {
                                     Map<String, Object> map1 = new HashMap<>();
                                     map1.put("cal_intake", hcal);
                                     homeRef.set(map1, SetOptions.merge());
-                                    currentCal.setText("Current Calorie intake: "+hcal
-                                    );
+                                    currentCal.setText("Current Calorie intake: "+hcal);
 
                                 }
                             }
@@ -304,7 +322,28 @@ public class DietFragment extends Fragment {
                 }
             }
         });
+        askDietician=view.findViewById(R.id.btnAskbot);
 
+        botReply=view.findViewById(R.id.botReplyText);
+        reqQuery=view.findViewById(R.id.editBotSend);
+
+        askDietician.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            String req;
+            req=reqQuery.getText().toString();
+            askBot(req).addOnCompleteListener(new OnCompleteListener<String>() {
+                @Override
+                public void onComplete(@NonNull Task<String> task) {
+                    if(task.isSuccessful())
+                        botReply.setText(task.getResult());
+                    else
+                        task.getException().printStackTrace();
+                }
+            });
+
+            }
+        });
         dietHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -313,6 +352,28 @@ public class DietFragment extends Fragment {
             }
         });
 
+
+
         return view;
+    }
+    private Task<String> askBot(String text) {
+        // Create the arguments to the callable function.
+        Map<String, Object> data = new HashMap<>();
+        data.put("text", text);
+        data.put("push", true);
+
+        return mFunctions
+                .getHttpsCallable("tqaPredict")
+                .call(data)
+                .continueWith(new Continuation<HttpsCallableResult, String>() {
+                    @Override
+                    public String then(@NonNull Task<HttpsCallableResult> task) throws Exception {
+                        // This continuation runs on either success or failure, but if the task
+                        // has failed then getResult() will throw an Exception which will be
+                        // propagated down.
+                        String result = (String) task.getResult().getData();
+                        return result;
+                    }
+                });
     }
 }
