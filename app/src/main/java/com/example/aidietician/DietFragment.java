@@ -162,7 +162,6 @@ public class DietFragment extends Fragment {
         nextMeal = view.findViewById(R.id.cardNextMeal);
         dietChart = view.findViewById(R.id.cardDietChart);
         dietHistory = view.findViewById(R.id.cardDietHistory);
-        dietRecipe = view.findViewById(R.id.cardDietRecepie);
         currentCal=view.findViewById(R.id.curCal);
         targetCal=view.findViewById(R.id.targetCalo);
         DisplayMetrics displayMetrics = new DisplayMetrics();
