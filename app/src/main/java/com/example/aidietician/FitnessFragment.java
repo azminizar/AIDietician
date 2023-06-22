@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,12 +118,23 @@ public class FitnessFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()){
+                    Log.d("TAG", "onComplete: Inside task");
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         Map<String, Object> map = document.getData();
-                        textViewActivity.setText(map.get("activity").toString());
-                        textViewStep.setText(map.get("steps").toString());
-                        textViewCal.setText(map.get("cal_burned").toString());
+                        Log.d("TAG", "onComplete: Inside If");
+                        if(map.get("activity")!=null)
+                            textViewActivity.setText(map.get("activity").toString());
+                        else
+                            textViewActivity.setText("0");
+                        if(map.get("steps")!=null)
+                            textViewStep.setText(map.get("steps").toString());
+                        else
+                            textViewStep.setText("0");
+                        if(map.get("cal_burned")!=null)
+                            textViewCal.setText(map.get("cal_burned").toString());
+                        else
+                            textViewCal.setText("0");
                     }
                 }
             }
