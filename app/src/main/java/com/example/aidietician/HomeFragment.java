@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -52,8 +53,9 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private TextView nameView, dietView, activityView, waterView, weightView, sleepView, bmiView;
+    private TextView nameView, dietView, activityView, waterView, weightView, sleepView, bmiView,wellnessView;
     Dialog dialog;
+    private ProgressBar pgBar;
 
     FirebaseFirestore fstore;
     FirebaseAuth mAuth;
@@ -71,6 +73,40 @@ public class HomeFragment extends Fragment {
      * @return A new instance of fragment HomeFragment.
      */
     // TODO: Rename and change types and number of parameters
+    // Constants for the weights
+    private static final double BMI_WEIGHT = 0.2;
+    private static final double CALORIE_INTAKE_WEIGHT = 0.15;
+    private static final double CALORIE_TARGET_WEIGHT = 0.15;
+    private static final double WATER_INTAKE_WEIGHT = 0.15;
+
+    // Function to calculate the wellness level score
+    public int calculateWellnessLevelScore(double bmi, double calorieIntake, double calorieTarget, int waterIntake) {
+        // Normalize BMI to a scale of 0 to 100
+        double bmiScore = (bmi - 18.5) / (24.9 - 18.5) * 100;
+        bmiScore = Math.max(0, Math.min(bmiScore, 100));
+
+        // Calculate the percentage of calorie target achieved
+        if(calorieTarget==0)
+            calorieTarget=1500;
+        double calorieTargetAchieved = calorieIntake / calorieTarget * 100;
+        calorieTargetAchieved = Math.max(0, Math.min(calorieTargetAchieved, 100));
+
+        // Calculate water intake score (8 glasses of water for a perfect score)
+        int waterIntakeScore = waterIntake >= 8 ? 100 : waterIntake / 8 * 100;
+
+        // Adjust the weights to reflect the desired emphasis on calorie target achievement
+        double bmiWeight = 0.3; // Adjust the weight as needed
+        double calorieTargetAchievedWeight = 0.5; // Adjust the weight as needed
+        double waterIntakeWeight = 0.2; // Adjust the weight as needed
+
+        // Calculate the weighted average score
+        double score = bmiWeight * bmiScore +
+                calorieTargetAchievedWeight * calorieTargetAchieved +
+                waterIntakeWeight * waterIntakeScore;
+
+        // Round the score and return as an integer
+        return (int) Math.round(score);
+    }
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
@@ -104,7 +140,8 @@ public class HomeFragment extends Fragment {
         CardView cardViewWater = v.findViewById(R.id.cardViewWater);
         waterView = v.findViewById(R.id.waterText);
         sleepView = v.findViewById(R.id.sleepText);
-
+        wellnessView=v.findViewById(R.id.txtviewWellness);
+        pgBar=v.findViewById(R.id.pgWellness);
         dialog = new Dialog(getContext());
 
         cardViewWater.setOnClickListener(new View.OnClickListener() {
@@ -131,7 +168,7 @@ public class HomeFragment extends Fragment {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-
+                        int wellsc;
                         Log.d("TAG", "DocumentSnapshot data: " + document.getData());
                         Map<String, Object> map = document.getData();
                         dietView = v.findViewById(R.id.calText);
@@ -144,18 +181,29 @@ public class HomeFragment extends Fragment {
                         if (map != null) {
                             String cal = String.valueOf(map.get("cal_intake"));
                             dietView.setText(cal);
+
                             String sleep = String.valueOf(map.get("sleep"));
                             sleepView.setText(sleep);
                             String activity = String.valueOf(map.get("activity"));
                             activityView.setText(activity);
                             String bmi = String.valueOf(map.get("bmi"));
                             bmiView.setText(bmi);
+
                             String weight = String.valueOf(map.get("weight"));
                             weightView.setText(weight);
                             String water = String.valueOf(map.get("water"));
+
                             waterView.setText(water);
                             String name = String.valueOf(map.get("fname"));
                             nameView.setText("Hey " + name + " ...");
+                            String tar_cal= String.valueOf(map.get("cal_target"));
+                            double dcal=Double.valueOf(cal);
+                            double dbmi=Double.valueOf(bmi);
+                            int dwater=Integer.valueOf(water);
+                            double dtar=Double.valueOf(tar_cal);
+                            wellsc= calculateWellnessLevelScore(dbmi,dcal,dtar,dwater);
+                            wellnessView.setText("Wellness Level:"+String.valueOf(wellsc));
+                            pgBar.setProgress(wellsc);
                         }
                     } else {
                         Log.d("TAG", "No such document");

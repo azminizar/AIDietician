@@ -118,7 +118,7 @@ public class FitnessTracker extends AppCompatActivity implements SensorEventList
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Do nothing for now
+
     }
 
     @Override

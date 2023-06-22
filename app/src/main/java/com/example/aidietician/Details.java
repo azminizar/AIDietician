@@ -164,18 +164,18 @@ public class Details extends AppCompatActivity {
                         Map<String, Object> map2 = new HashMap<>();
                         map2.put("weight", weight);
                         map2.put("bmi", String.valueOf(bmi));
-                        map2.put("cal_target", String.valueOf(cal));
+                        map2.put("cal_target", "" + cal);
 //                map2.put("water",water);
 
-
+                        Log.d("cal Value before merge:",String.valueOf(cal) );
                         df.set(map, SetOptions.merge());
                         df2.set(map2, SetOptions.merge());
                     }
                 });
 
-                Intent intent = new Intent(getApplicationContext(), Homepage.class);
-                startActivity(intent);
-                finish();
+                //Intent intent = new Intent(getApplicationContext(), Homepage.class);
+               // startActivity(intent);
+              //  finish();
 
             }
         });
@@ -208,7 +208,7 @@ public class Details extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
+        Log.d("Value of age:",String.valueOf(age) );
         return age;
     }
 
@@ -220,8 +220,9 @@ public class Details extends AppCompatActivity {
         } else {
             bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
         }
-
+        Log.d("value of bmr:",String.valueOf(bmr) );
         return bmr;
+
     }
 
     public int calculateCalories(String gender, int weight, int height, int age, double activityLevel) {
@@ -252,6 +253,7 @@ public class Details extends AppCompatActivity {
             default:
                 break;
         }
+        Log.d("value of bmr:",String.valueOf(actlvl) );
         return actlvl;
     }
 
