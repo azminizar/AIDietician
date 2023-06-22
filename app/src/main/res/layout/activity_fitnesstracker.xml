@@ -113,6 +113,7 @@
                     android:layout_marginStart="20dp"
                     android:fontFamily="@font/poppins"
                     android:text="Walking"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:layout_marginTop="20dp"
@@ -120,73 +121,57 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/txtViewNumStep"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
                     android:fontFamily="@font/poppins"
-                    android:text="2000 Steps"
+                    android:text="2000"
                     android:textColor="@color/black"
                     android:textSize="15dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageViewWalk"
                     app:layout_constraintTop_toBottomOf="@+id/textViewWalking" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewRunning"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardElevation="2dp"
-            app:cardCornerRadius="8dp"
-            android:layout_gravity="fill"
-            android:layout_marginTop="20dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/bg_lightgreen">
-
-                <ImageView
-                    android:id="@+id/imageViewRun"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:src="@drawable/jogging"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginStart="15dp"/>
-
                 <TextView
-                    android:id="@+id/textViewRunning"
+                    android:id="@+id/step"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
                     android:fontFamily="@font/poppins"
-                    android:text="Running"
+                    android:text="Steps"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintStart_toEndOf="@+id/imageViewRun"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/txtViewNumStep"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewWalking" />
 
                 <TextView
+                    android:id="@+id/calorieBurnedSteps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/poppins"
-                    android:text="5 Kms"
+                    android:text="1000"
                     android:textColor="@color/black"
                     android:textSize="15dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageViewRun"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewRunning" />
+                    app:layout_constraintStart_toEndOf="@+id/imageViewWalk"
+                    app:layout_constraintTop_toBottomOf="@+id/txtViewNumStep" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Calories Burned"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintStart_toEndOf="@+id/calorieBurnedSteps"
+                    app:layout_constraintTop_toBottomOf="@+id/step" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -223,6 +208,7 @@
                     android:layout_marginStart="20dp"
                     android:fontFamily="@font/poppins"
                     android:text="Cycling"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:layout_marginTop="20dp"
@@ -230,18 +216,57 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/cycleTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
                     android:fontFamily="@font/poppins"
-                    android:text="10 Kms"
+                    android:text="__"
+                    android:layout_marginTop="15dp"
                     android:textColor="@color/black"
                     android:textSize="15dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageViewCycle"
                     app:layout_constraintTop_toBottomOf="@+id/textViewCycling" />
+
+                <TextView
+                    android:id="@+id/textViewHours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Hours"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toEndOf="@+id/cycleTime"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewCycling" />
+
+                <TextView
+                    android:id="@+id/calorieBurnedCycle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="500"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewCycle"
+                    app:layout_constraintTop_toBottomOf="@+id/cycleTime" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Calories Burned"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintStart_toEndOf="@+id/calorieBurnedCycle"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewHours" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -277,6 +302,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:fontFamily="@font/poppins"
+                    android:textStyle="bold"
                     android:text="Swimmimg"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -284,19 +310,59 @@
                     app:layout_constraintStart_toEndOf="@+id/imageViewSwim"
                     app:layout_constraintTop_toTopOf="parent" />
 
+
                 <TextView
+                    android:id="@+id/swimtime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
                     android:fontFamily="@font/poppins"
-                    android:text=""
+                    android:text="__"
+                    android:layout_marginTop="15dp"
                     android:textColor="@color/black"
                     android:textSize="15dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageViewSwim"
                     app:layout_constraintTop_toBottomOf="@+id/textViewSwimming" />
+
+                <TextView
+                    android:id="@+id/swimHours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Hours"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toEndOf="@+id/swimtime"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewSwimming" />
+
+                <TextView
+                    android:id="@+id/calorieBurnedSwim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="300"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewSwim"
+                    app:layout_constraintTop_toBottomOf="@+id/swimtime" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Calories Burned"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintStart_toEndOf="@+id/calorieBurnedSwim"
+                    app:layout_constraintTop_toBottomOf="@+id/swimHours" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

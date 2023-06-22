@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,7 +100,7 @@ public class FitnessFragment extends Fragment {
         cardFitness.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2 = new Intent(getActivity(),Fitnesstracker.class);
+                Intent intent2 = new Intent(getActivity(), Fitnesstracker.class);
                 startActivity(intent2);
             }
         });
@@ -111,8 +110,8 @@ public class FitnessFragment extends Fragment {
         textViewActivity = view.findViewById(R.id.textViewActivityCount);
 
         userID=mAuth.getCurrentUser().getUid();
-        DocumentReference df = fstore.collection("home").document(userID);
-        DocumentReference df2 = fstore.collection("activity").document(userID);
+
+        DocumentReference df = fstore.collection("activity").document(userID);
 
         df.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -122,26 +121,8 @@ public class FitnessFragment extends Fragment {
                     if (document.exists()) {
                         Map<String, Object> map = document.getData();
                         textViewActivity.setText(map.get("activity").toString());
-
-                    }
-                }
-            }
-        });
-
-        df2.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()){
-                    DocumentSnapshot snapshot = task.getResult();
-                    if(snapshot.exists()){
-                        Map<String, Object> object = snapshot.getData();
-                        textViewStep.setText(object.get("steps").toString());
-                        step = Integer.parseInt(object.get("steps").toString());
-                        calCount = (int) (step*0.04);
-                        textViewCal.setText(String.valueOf(calCount));
-                        Map<String, Object> map = new HashMap<>();
-                        map.put("cal_burned",String.valueOf(calCount));
-                        df2.set(map, SetOptions.merge());
+                        textViewStep.setText(map.get("steps").toString());
+                        textViewCal.setText(map.get("cal_burned").toString());
                     }
                 }
             }
