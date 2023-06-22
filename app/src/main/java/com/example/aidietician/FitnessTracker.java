@@ -4,12 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -22,7 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
@@ -104,13 +100,14 @@ public class FitnessTracker extends AppCompatActivity implements SensorEventList
             progressText.setText(String.valueOf(stepCount));
             activity = (int) ((int) stepCount * 0.01);
             String userID = mAuth.getCurrentUser().getUid();
+            DocumentReference df = fstore.collection("home").document(userID);
+            DocumentReference df2 = fstore.collection("activity").document(userID);
             Map<String, Object> map = new HashMap<>();
             Map<String, Object> map2 = new HashMap<>();
             map.put("activity", String.valueOf(activity));
             map2.put("steps", String.valueOf(stepCount));
-            DocumentReference df = fstore.collection("home").document(userID);
-            DocumentReference df2 = fstore.collection("activity").document(userID);
             df.set(map, SetOptions.merge());
+            df2.set(map, SetOptions.merge());
             df2.set(map2, SetOptions.merge());
             //Toast.makeText(this, String.valueOf(stepCount), Toast.LENGTH_SHORT).show();
         }
