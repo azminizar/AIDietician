@@ -85,6 +85,7 @@
                     <com.google.android.material.progressindicator.LinearProgressIndicator
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/pgWellness"
                         app:trackThickness="8dp"
                         app:trackColor="@color/white"
                         app:indicatorColor="#0D89FB"
